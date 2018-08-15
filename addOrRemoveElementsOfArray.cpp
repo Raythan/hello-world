@@ -50,9 +50,17 @@ int main() {
 				}
 				printf("\n");
 				if(d==1){
-					// Inserting elements where pointed by user
-					printf("\nPlease info where did you want to add a number? 1 - %d\n", (n + 1));
-					scanf("%d", &ind);
+					while(decision!=1&&ind!=1||decision!=2&&ind!=2){ // loop for avoid mistake
+						// Inserting elements where pointed by user
+						printf("\nPlease info where did you want to add a number? 1 - %d\n", (n + 1));
+						scanf("%d", &ind);
+						if(decision!=1&&ind!=1||decision!=2&&ind!=2){
+							printf("\nPlease input a valid number!!");
+							printf("%d %d", decision, ind); // Continuar daqui
+						}else{
+							
+						}
+					}
 					printf("Please info what number do you want to add:\n");
 					scanf("%d", &add);
 					ind--;
@@ -74,18 +82,20 @@ int main() {
 					for(i=0;i<n;i++){
 						printf("-------");
 					}
-					printf("\n\n%s\n", rollback); //Decision for continue or not
-					scanf("%d", &decision);
-					if(decision==2){
-						decision = 0;
-						printf("\n%s\n", option4);
-						scanf("%d", &newVet);
-						if(newVet==2){
-							newVet = 0; n = 0;
+					while(decision!=1||decision!=2){ // Loop for avoid mistake
+						printf("\n\n%s\n", rollback); //Decision for continue or not
+						scanf("%d", &decision);
+						if(decision==2){
+							decision = 0;
+							printf("\n%s\n", option4);
+							scanf("%d", &newVet);
+							if(newVet==2){
+								newVet = 0; n = 0;
+							}
+						}else{
+							printf(autor);
+							decision = 1;
 						}
-					}else{
-						printf(autor);
-						decision = 1;
 					}
 				}else if(d==2&&n>1){
 					printf("\nPlease info where did you want to remove a number? 1 - %d\n", n);
