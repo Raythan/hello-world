@@ -1,9 +1,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+int increaseElements();
+
 int main() {
 // Acrescentar ou remover números dentro de um vetor de inteiros
-	int decision = 0, newVet = 0, n, i, d, add, aux, ind;
+	int decision = 0, newVet = 0, n = 0, i, d, add, aux, ind;
 	char autor[] = ("\n\nClosing software down!\nThis software have been produced and distribuited for\nRaythan Padovani Abreu Machado.");
 	{
 		int vet[n];
@@ -23,13 +25,14 @@ int main() {
 			system("cls");
 			{
 				if((newVet==0 && d==1) || (newVet==0 && d==2)){ // Vector building
-					printf("Plase info the vector size: \n");
-					scanf("%d", &n);
-					system("cls");
-					printf("Plase input the vector elements: \n");
-					for(i=0;i<n;i++){
-						printf("\nInput the value on index[%d]: ", (i+1));
-						scanf("%d", &vet[i]);
+						while(n==0){
+						printf("Plase info the vector size: \n");
+						scanf("%d", &n);
+						system("cls");
+						for(i=0&&n!=0;i<n;i++){
+							printf("\nInput the value on index[%d]: ", (i+1));
+							scanf("%d", &vet[i]);
+						}
 					}
 				}
 				system("cls");
@@ -71,20 +74,20 @@ int main() {
 					for(i=0;i<n;i++){
 						printf("-------");
 					}
-					printf("\n\n%s\n", rollback); //Decisão se continuar ou não
+					printf("\n\n%s\n", rollback); //Decision for continue or not
 					scanf("%d", &decision);
 					if(decision==2){
 						decision = 0;
 						printf("\n%s\n", option4);
 						scanf("%d", &newVet);
 						if(newVet==2){
-							newVet = 0;
+							newVet = 0; n = 0;
 						}
 					}else{
 						printf(autor);
 						decision = 1;
 					}
-				}else if(d==2){
+				}else if(d==2&&n>1){
 					printf("\nPlease info where did you want to remove a number? 1 - %d\n", n);
 					scanf("%d", &ind);
 					ind--;
@@ -106,20 +109,36 @@ int main() {
 					for(i=0;i<n;i++){
 						printf("-------");
 					}
-					printf("\n\n%s\n", rollback); //Decisão se continuar ou não
+					printf("\n\n%s\n", rollback); //Decision for continue or not
 					scanf("%d", &decision);
 					if(decision==2){
 						decision = 0;
 						printf("\n%s\n", option4);
 						scanf("%d", &newVet);
 					if(newVet==2){
-						newVet = 0;
+						newVet = 0; n = 0;
 					}
 					}else{
 						printf(autor);
 						decision = 1;
 					}
-				}else{
+				}else if(d==2&&n<2){
+					printf("\n\n------This vector is too small for delete elements.------\n");
+					printf("\n\n%s\n", rollback); //Decision for continue or not
+					scanf("%d", &decision);
+					if(decision==2){
+						decision = 0;
+						printf("\n%s\n", option4);
+						scanf("%d", &newVet);
+					if(newVet==2){
+						newVet = 0; n = 0;
+					}
+					}else{
+						printf(autor);
+						decision = 1;
+					}
+				}
+				else{
 					system("cls");
 					printf(autor);
 					decision = 1;
