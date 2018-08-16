@@ -5,11 +5,20 @@ int increaseElements();
 
 int main() {
 // Acrescentar ou remover números dentro de um vetor de inteiros
-	int decision = 0, newVet = 0, n = 0, i, d, add, aux, ind;
+	int decision = 0, // Decision for loop the architecture while the user wants
+	decision2 = 0, // Decision for avoid invalid input on insert elements on array
+	newVet = 0, 
+	n = 0, 
+	i, 
+	d, 
+	add, 
+	aux, 
+	ind;
 	char autor[] = ("\n\nClosing software down!\nThis software have been produced and distribuited for\nRaythan Padovani Abreu Machado.");
 	{
 		int vet[n];
 		while(decision==0){
+			int decision3 = 3; // Decision for avoid invalid input on rollback and decision
 			char rollback[] = ("Do you want to exit?\n(1) - Yes.\n(2) - No."), // Finalização do software
 			option1[] = ("1 - Increase elements on N position of a N size vector.\n"), // Operação de adcionar elementos
 			option2[] = ("2 - Decrease elements of N position of a N size vector.\n"), // Operação de eliminar elementos
@@ -50,15 +59,20 @@ int main() {
 				}
 				printf("\n");
 				if(d==1){
-					while(decision!=1&&ind!=1||decision!=2&&ind!=2){ // loop for avoid mistake
+					while(decision2!=n){ // loop for avoid mistake
 						// Inserting elements where pointed by user
 						printf("\nPlease info where did you want to add a number? 1 - %d\n", (n + 1));
-						scanf("%d", &ind);
-						if(decision!=1&&ind!=1||decision!=2&&ind!=2){
-							printf("\nPlease input a valid number!!");
-							printf("%d %d", decision, ind); // Continuar daqui
-						}else{
-							
+						scanf("%d", &ind); 
+						decision2 = ind; // Increased rule 15-08
+						if(decision2 > (n+1) || decision2 == 0){
+							printf("\nPlease input a valid number!!\n");
+							scanf("%d", &ind); 
+							decision2 = ind; // Increased rule 15-08
+							if(decision2 > (n+1) || decision2 == 0){
+								system("cls");
+							}
+						}else if(decision2 <= (n+1)){
+							decision2 = n;
 						}
 					}
 					printf("Please info what number do you want to add:\n");
@@ -82,19 +96,21 @@ int main() {
 					for(i=0;i<n;i++){
 						printf("-------");
 					}
-					while(decision!=1||decision!=2){ // Loop for avoid mistake
+					while(decision3>2){ // loop for avoid mistake // Loop for avoid mistake
 						printf("\n\n%s\n", rollback); //Decision for continue or not
 						scanf("%d", &decision);
 						if(decision==2){
 							decision = 0;
 							printf("\n%s\n", option4);
 							scanf("%d", &newVet);
+							decision3 = 1;
 							if(newVet==2){
 								newVet = 0; n = 0;
 							}
 						}else{
 							printf(autor);
 							decision = 1;
+							decision3 = 1;
 						}
 					}
 				}else if(d==2&&n>1){
