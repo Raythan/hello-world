@@ -1,10 +1,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int increaseElements();
-
 int main() {
-// Acrescentar ou remover números dentro de um vetor de inteiros
+	//Add or remove numbers inside an array of integer
 	int decision = 0, // Decision for loop the architecture while the user wants
 	decision2 = 0, // Decision for avoid invalid input on insert elements on array
 	newVet = 0, 
@@ -20,10 +18,10 @@ int main() {
 		while(decision==0){
 			int decision3 = 3; // Decision for avoid invalid input on rollback and decision
 			char rollback[] = ("Do you want to exit?\n(1) - Yes.\n(2) - No."), // Finalização do software
-			option1[] = ("1 - Increase elements on N position of a N size vector.\n"), // Operação de adcionar elementos
-			option2[] = ("2 - Decrease elements of N position of a N size vector.\n"), // Operação de eliminar elementos
-			option3[] = ("3, 0 - Exit!\n"), // Questionamento de finalização do algoritmo
-			option4[] = ("Do you want to use the same vector?\n(1) - Yes.\n(2) - No."); // Questionamento para saber se utilizará o mesmo vetor ou não
+			option1[] = ("1 - Increase elements on N position of a N size vector.\n"), // Operation for input elements
+			option2[] = ("2 - Decrease elements of N position of a N size vector.\n"), // Operation for remove elements
+			option3[] = ("3, 0 - Exit!\n"), // Query for exit script
+			option4[] = ("Do you want to use the same vector?\n(1) - Yes.\n(2) - No."); // Query for use the same vector
 			system("cls");
 			if(newVet==0){
 				printf("This software make 2 operations.\n");
