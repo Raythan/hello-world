@@ -37,9 +37,10 @@ fieldset {
 	var i, estados = ["Acre","Alagoas","Amapá","Amazonas","Bahia","Ceará","Distrito Federal","Espírito Santo","Goiás","Maranhão","Mato Grosso","Mato Grosso do Sul","Minas Gerais","Pará","Paraíba","Paraná","Pernambuco","Piauí","Rio de Janeiro","Rio Grande do Norte","Rio Grande do Sul","Rondônia","Roraima","Santa Catarina","São Paulo","Sergipe","Tocantins"];
 	var formBack = `<div id='formBack' style='border:solid;padding:0.5%;text-align:center;'>Você pode compilar esse código no Dev c++</br>Só não está adequadamente adentado!</br><form action='index.html'><input type='submit' onclick='location.reload()' value='Voltar!'/></form></div></br>----------------------- INICIO DO CÓDIGO --------------------------------"`,
 	formBack2 = `<div id='formBack2' style='padding:0.5%;'><form action='index.html'><input type='submit' onclick='location.reload()' value='Voltar!'/></form></div></br>`;
+	option = ["Atividades professor Rodrigo Bonacin. || >>> Terceiro semestre <<<</br></br>","Atividades professor Luis Mariano. || >>> Terceiro semestre <<<","Atividades professora Ana. || >>> Segundo semestre <<<","Atividades professora Marta. || >>> Segundo semestre <<<"];
+	
 	// DECLARAÇÃO DO FORMULÁRIO INICIAL E BOTÃO PARA CHAMAR A FUNÇÃO
 	function selecao(){
-		formBack = "<div id='formBack' style='border:solid;padding:0.5%;text-align:center;'>Você pode compilar esse código no Dev c++</br>Só não está adequadamente adentado!</br><form action='index.html'><input type='submit' onclick='location.reload()' value='Voltar!'/></form></div></br>----------------------- INICIO DO CÓDIGO --------------------------------";
 		formFull = `<div id='formApresentacao' style='font-size:18;display:block;text-align:left;margin-top:3%'>
 		<form action='#'>
 		<!--input class='formSelecao' onclick='mudarSelecao()' type='submit' onclick='alerta()' value='Alerta!!'/></br-->
@@ -70,6 +71,8 @@ fieldset {
 		`
 		document.body.innerHTML = insImp;
 	}
+	
+	// proposed exercises in HTML5
 	function listaTags(){
 		const tagsHtml = `
 		<strong>Negrito - HTML5!</strong></br>
@@ -94,6 +97,7 @@ fieldset {
 		document.body.innerHTML = instructForPrint;
 	}
 	
+	// proposed exercises in HTML5
 	function edp1(){
 		var parte1 = [
 		`<div id='formBox' style='display:block'><fieldset style="width:250px"><legend>Dados Pessoais</legend><form method='GET' action='#'>Nome:</br><input name='conf0' id='conf0' type='text' value='Raythan' required/></br>Endereço:</br><input name='conf1' id='conf1' type='text' value='Rua Guatemala' required/></br>Cidade:</br><input type='text' name='conf2' id='conf2' value='Campo Limpo Paulista' required/></br>Estado:</br><select id='conf3' name='conf3'><option id='options'></option></select></br>Data de Nascimento:</br><input name='conf4' id='conf4' type='date' required/></br>Email:</br><input id='conf5' name='conf5' type='email' value='aluno@faccamp.com' required/></br></fieldset><fieldset style="width:250px"><legend>Dados Profissionais</legend>Empresa:</br><input id='conf6' name='conf6' type='text' value='UNIFACCAMP' required/></br>Data de admissão:</br><input id='conf7' name='conf7' type='date' required/></br></fieldset></br>Anexar currículo:</br><input name='conf8' id='conf8' type='file'/></br></br><input type='submit' onclick='#' value='Cadastrar'/></br></form></div>
@@ -116,6 +120,7 @@ fieldset {
 		}
 	}
 	
+	// Try to build an alert button
 	function mudarSelecao(){
 		x = document.getElementsByClassName("formSelecao");
 		i = 0;
@@ -126,6 +131,7 @@ fieldset {
 		}
 	}
 	
+	// Form that show what type of triangle is
 	function formCalcMatrizTriangulo(){
 		document.getElementById("formApresentacao").style.display = "none";
 		var matriz = new Array(), //Matriz com os elementos
