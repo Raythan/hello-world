@@ -2,7 +2,14 @@
 <html lang="pt-br">
 <head>
 <meta charset="utf-8"/>
+<title>College Jobs</title>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <style type='text/css'>
+@import url('https://fonts.googleapis.com/css?family=Sawarabi+Mincho');
+
+html, body {
+	height:100%;
+}
 fieldset {
 	width:500px;
 }
@@ -34,11 +41,59 @@ fieldset {
 }
 </style>
 <script type="text/javascript">
+	var selectionForSemester = ["first semester","second semester","third semester","fourth semester","fifth semester","sixth semester","seventh semester","eighth semester",];
 	var i, estados = ["Acre","Alagoas","Amapá","Amazonas","Bahia","Ceará","Distrito Federal","Espírito Santo","Goiás","Maranhão","Mato Grosso","Mato Grosso do Sul","Minas Gerais","Pará","Paraíba","Paraná","Pernambuco","Piauí","Rio de Janeiro","Rio Grande do Norte","Rio Grande do Sul","Rondônia","Roraima","Santa Catarina","São Paulo","Sergipe","Tocantins"];
 	var formBack = `<div id='formBack' style='border:solid;padding:0.5%;text-align:center;'>Você pode compilar esse código no Dev c++</br>Só não está adequadamente adentado!</br><form action='index.html'><input type='submit' onclick='location.reload()' value='Voltar!'/></form></div></br>----------------------- INICIO DO CÓDIGO --------------------------------"`,
 	formBack2 = `<div id='formBack2' style='padding:0.5%;'><form action='index.html'><input type='submit' onclick='location.reload()' value='Voltar!'/></form></div></br>`;
-	option = ["Atividades professor Rodrigo Bonacin. || >>> Terceiro semestre <<<</br></br>","Atividades professor Luis Mariano. || >>> Terceiro semestre <<<","Atividades professora Ana. || >>> Segundo semestre <<<","Atividades professora Marta. || >>> Segundo semestre <<<"];
 	
+	option = ["Atividades professor Rodrigo Bonacin. || >>> Terceiro semestre <<<</br></br>","Atividades professor Luis Mariano. || >>> Terceiro semestre <<<","Atividades professora Ana. || >>> Segundo semestre <<<","Atividades professora Marta. || >>> Segundo semestre <<<"];
+	optionSem = ["1º Semestre","2º Semestre","3º Semestre","4º Semestre","5º Semestre","6º Semestre","7º Semestre","8º Semestre"];
+	
+	function frontEnd(){
+		var top = `
+		<div style="text-align:center;font-size:30px;padding-top:2%;">This is the summary of my all College jobs.</div>
+		<hr>
+		`,
+		middle = `
+		<form method="GET">
+			<select style="width:100%;height:10%;font-size:20px;text-align:center;">
+				<option>Select some...</option>
+				<option name="selectionForSemester[0]">1º Semester</option>
+				<option name="selectionForSemester[1]">2º Semester</option>
+				<option name="selectionForSemester[2]">3º Semester</option>
+				<option name="selectionForSemester[3]">4º Semester</option>
+				<option name="selectionForSemester[4]">5º Semester</option>
+				<option name="selectionForSemester[5]">6º Semester</option>
+				<option name="selectionForSemester[6]">7º Semester</option>
+				<option name="selectionForSemester[7]">8º Semester</option>
+			</select>
+		</form>
+		`, bottom = `
+			<div style='text-align:center;padding-bottom:3%;margin-bottom:0px;font-size:20px;'>
+			This is a free code developed by:</br>
+			Raythan Padovani Abreu Machado
+			</div>
+		`;
+		const frontSending = {
+			top: top,
+			middle: middle,
+			bottom: bottom
+		};
+		const insert = `
+			${frontSending.top}
+			${frontSending.middle}
+			${frontSending.bottom}
+		`;
+		document.body.innerHTML = insert;
+		for(i=0;i<8;i++){
+			if(selectionForSemester[i]){
+				alert(selectionForSemester[i]);
+			}
+		}
+	}
+	
+	
+	//
 	// DECLARAÇÃO DO FORMULÁRIO INICIAL E BOTÃO PARA CHAMAR A FUNÇÃO
 	function selecao(){
 		formFull = `<div id='formApresentacao' style='font-size:18;display:block;text-align:left;margin-top:3%'>
@@ -936,8 +991,6 @@ var lista4info = [`
 </script>
 </head>
 <body>
-<script>selecao();</script>
-<div id='buttonAlertStart' style="display:none;"></div>
-<div id='divAlertExterno' style="display:none;"></div>
+<script>frontEnd();</script>
 </body>
 </html>
