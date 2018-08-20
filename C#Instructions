@@ -1,0 +1,70 @@
+@Html.ActionLink("Nome que vai aparecer na pagina", "Nome do método", "Pasta onde o método está salvo")
+--------------
+View - Tudo que é exibido na página
+Controller - Pede e envia acessos para o Model
+Model - pega dados do banco e manda pro controller
+---------------
+App_Data = Carrega dados do banco de dados
+App_Start = Arquivos de configuração que geram scripts, e arquivo de filtros
+      -> BundleConfig = organiza e gera 1 arquivo com scripts
+      -> FilterConfig = mensagens de erro e alerta
+      -> IdentityConfig = executar serviços de mensagens - default
+      -> RouteConfig = carregar rotas necessárias - endereços WEB para aplicações
+            routes.MapRoute(
+                name: "Default", // Página padrão, vai redirecionar para o Index
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+      -> Startup.Auth = autenticação
+Content = Pasta para colocar arquivos CSS, Imagens, Mídia
+Controllers
+fonts = armazenar fontes, tipos de letras
+Models
+Scripts = armazenar javascripts
+Views
+
+Global.asax = arquivo para inicialização e finalização de recursos
+Web.config = carrega versões de uso
+---------------
+Se não passar nenhum padrão em Routes ele abre o controlador que estiver como padrão
+->>Endereços para trabalhar no localhost vai da rota, para onde estiver direcionado, e depois o método 
+\/\/
+defaults: new { controller = "NomeDoController", action = "NomedoMétodo", id = UrlParameter.Optional }
+Obs.: Se tentar abrir o código fonte do Controller na página não via conseguir porque ele só retorna o que o método mandar
+---------------
+Métodos tipo (public string (){ retornam "texto" } )
+Métodos do tipo (public actionResult() { retornam uma "View" } )
+  A view retornada pelo controller está na pasta Views com o nome do Controller 
+  por exemplo: HomeController. A view está na pasta Views/Home/
+---------------
+As views por padrão, herdam o template que está na pasta Shared _Layouts.cshtml
+--------------- // Continuar daqui
+ ---->>> Link Helper <<<----
+ @Html.ActionLink("NomeDoLink", "Objeto-Método-ActionQueVaiExecutar", "NomeDoController - NomeDaPastaController");
+ @Html.ActionLink("Página Inicial", "Index", "Home");
+---------------
+Quando declarar parâmetros no C# nos métodos, especificar cada tipo de variável dentro dos parênteses
+---------------
+class
+ViewData["PropDoObjeto"] = Valor
+ViewBag.PropDoObjeto = Valor
+------------
+//Arquivo com nome do método que vai requisitar
+Chamada1.cshtml
+---
+//Fazer chamada de modelo
+@ NomeDoProjeto.PastaComModelos.NomeDaClasseComModelo
+---
+
+@{
+ ViewBag.Title = "Título da Página";
+}
+//TAGS HTML
+<h1></h1>
+<p>@ViewData["NomeDaPropObjeto"] </p>
+<p>@ViewBag.NomeDaPropObjeto</p>
+--- <p>@Model.NomeDaProp</p>
+-------------
+Obs.: Sempre que um método receber informações de formulários de outra página, preciso informar para o método o comando [HttpPost] e os parâmetros
+-------------
+Obs.: <a href="~/">Voltar 1 nível</a>
+-------------
