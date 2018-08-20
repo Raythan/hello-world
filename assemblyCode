@@ -1,0 +1,77 @@
+;This is and simple example of a counter...
+
+org 000h;
+sjmp inicio;
+org 0040h;
+inicio:		mov	a,	#0;
+			acall display0;
+			mov	tmod,	#01h;
+timer0:		mov	th0,	#3ch;
+			mov	tl0,	#0AFh;
+			clr	tf0;
+			setb tr0;
+
+			jnb	tf0, $;
+			inc	a;
+			cjne a,	#10, exibe;
+			mov	a,	#0;
+exibe:		acall	display0;
+			sjmp	timer0;
+
+display0:	cjne a,	#0,	display1;
+			mov	p1,	#00111111b;
+			ret;
+display1:	cjne a,	#1,	display2;
+			mov	p1,	#00000110b;
+			ret;
+display2:	cjne a,	#2,	display3;
+			mov	p1,	#01011011b;
+			ret;
+display3:	cjne a,	#3,	display4;
+			mov	p1,	#01001111b;
+			ret;
+display4:	cjne a,	#4,	display5;
+			mov	p1,	#01100110b;
+			ret;
+display5:	cjne a,	#5,	display6;
+			mov	p1,	#01101101b;
+			ret;
+display6:	cjne a,	#6,	display7;
+			mov	p1,	#01111101b;
+			ret;
+display7:	cjne a,	#7,	display8;
+			mov	p1,	#00100111b;
+			ret;
+display8:	cjne a,	#8,	display9;
+			mov	p1,	#01111111b;
+			ret;
+display9:	mov	p1,	#01101111b;
+			ret;
+			end;
+      
+;;;;;;     
+org - origem do programa;
+
+inicio: "nomes de label antes do dois pontos (:)"
+
+mov a, mov r0, mov b - mover valores na frente para os registradores
+
+-----
+
+mov a, #0ffh; Move para o acumulador (a) o valor hexadecimal ff
+
+mov r0, #55h; Move para o registrador (r0) o valor hexadecimal 55
+
+mov b, #0dfh; Move para o registrador (b) o valor hexadecimal df
+
+-----
+
+jmp nomeDaLabel; Move o step de comando para a label designada
+
+--
+
+jmp inicio; Move o comando para inicio
+
+--
+
+end; final do programa
