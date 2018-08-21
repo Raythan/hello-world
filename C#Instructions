@@ -37,10 +37,35 @@ Métodos do tipo (public actionResult() { retornam uma "View" } )
   por exemplo: HomeController. A view está na pasta Views/Home/
 ---------------
 As views por padrão, herdam o template que está na pasta Shared _Layouts.cshtml
---------------- // Continuar daqui
+--------------- 
  ---->>> Link Helper <<<----
  @Html.ActionLink("NomeDoLink", "Objeto-Método-ActionQueVaiExecutar", "NomeDoController - NomeDaPastaController");
  @Html.ActionLink("Página Inicial", "Index", "Home");
+---------------
+
+
+Model é uma classe com nome 'Case Sensitive'
+ ->>>para declarar um model eu utilizo os métodos GET, SET e POST
+      public class Pessoa
+      {
+            public int PessoaId { get; set; }
+            public string Nome { get; set; }
+            public int Tipo { get; set; }
+      }
+  ->>> Para chamar um model, posso usar o Controller, 
+  Precisa importar a classe (Bibliotec, Model a que estiver se referindo, clicando com o botão direito ou incluindo no inicio da página
+  Exemplo: """"using Introducao.Models;"""
+  Exemplo no escopo:  public ActionResult Index()
+                          {
+                              var pessoa = new Pessoa()
+                              {
+                                  PessoaId = 1;
+                              }
+                              return View();
+                          }
+      /// CONTINUAR DAQUI <<<<<<<<<<<<<<--------------
+      
+      
 ---------------
 Quando declarar parâmetros no C# nos métodos, especificar cada tipo de variável dentro dos parênteses
 ---------------
