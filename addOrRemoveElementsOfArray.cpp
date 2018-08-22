@@ -38,33 +38,70 @@ void printVector2(int n, int vet[]){
 	}
 }
 
+void readAndPrintVector(int n2, int n3, int m, int vet2[], int vet3[], int vet4[]){
+	int i = 0, i2 = 0, i3 = 0;
+	printf("Please input the size of the first vector:\n");
+	scanf("%d", &n2);
+	printf("Please input the size of the second vector:\n");
+	scanf("%d", &n3);
+	for(i=0;i<n2;i++){
+		printf("Please input the value of the Vector 1 in [ %d ]:\n", i+1);
+		scanf("%d", &vet2[i]);
+	}
+	for(i=0;i<n3;i++){
+		printf("Please input the value of the Vector 2 in [ %d ]:\n", i+1);
+		scanf("%d", &vet2[i]);
+	}
+	m = n2 + n3;
+	printf("m: %d\n", m);
+	for(i=0,i2=0,i3=0;i3<m;i3++){
+		vet4[i3] = vet2[i];
+		i3++; i++;
+		printf("i: %d, i2: %d, i3: %d\n", i, i2, i3);
+		vet4[i3] = vet3[i2];
+		i2++;
+	}
+	for(i=0;i<m;i++){
+		printf("Value of vector 3 in [ %d ]: %d\n", i, vet4[i]);
+	}
+	scanf("%d", &m);
+}
+
 int main() {
 	//Add or remove numbers inside an array of integer
 	int decision = 0, // Decision for loop the architecture while the user wants
 	decision2 = 0, // Decision for avoid invalid input on insert elements on array
-	newVet = 0, 
-	n = 0, 
-	i, 
-	d, 
-	add, 
-	aux, 
-	ind;
+	newVet = 0, // Variable used for markup in the first printable text
+	n = 0, // Size of the array
+	n2 = 0, // Size of the first mix array
+	n3 = 0, // Size of the second mix array
+	m = 0, // Size of the thirdy mix array
+	i, // Counter
+	d, // Variable used for markup
+	add, // Variable used for add the number, and next used for add the next number in the array
+	aux, // Variable for keep the value of the next position on array.
+	ind, // Decision that you choise for solve what index you want to add.
+	ind2 = 0; // Decision that you choise for solve what index you want to remove.
 	char autor[] = ("\n\nClosing software down!\nThis software have been produced and distribuited for\nRaythan Padovani Abreu Machado.");
 	{
-		int vet[n];
+		int vet[n], // Array used on the 2 first problems.
+		vet2[n2],// Array used for solve mix 2 arrays
+		vet3[n3], // Array used for solve mix 2 arrays
+		vet4[m]; // Array used for solve mix 2 arrays
 		while(decision==0){
 			int decision3 = 3; // Decision for avoid invalid input on rollback and decision
 			char rollback[] = ("Do you want to exit?\n(1) - Yes.\n(2) - No."), // Finalização do software
 			option1[] = ("1 - Increase elements on N position of a N size vector.\n"), // Operation for input elements
 			option2[] = ("2 - Decrease elements of N position of a N size vector.\n"), // Operation for remove elements
-			option3[] = ("3, 0 - Exit!\n"), // Query for exit script
-			option4[] = ("Do you want to use the same vector?\n(1) - Yes.\n(2) - No."); // Query for use the same vector
+			option3[] = ("0 or 4+ - For exit!\n"), // Query for exit script
+			option4[] = ("Do you want to use the same vector?\n(1) - Yes.\n(2) - No."), // Query for use the same vector
+			option5[] = ("3 - Get the result of 2 ordenated arrays.\n");
 			system("cls");
 			if(newVet==0){
 				printf("This software make 2 operations.\n");
 			}
 			printf("Please info what you want to do.\n");
-			printf(option1); printf(option2); printf(option3);
+			printf(option1); printf(option2); printf(option5); printf(option3);
 			scanf("%d", &d);
 			system("cls");
 			{
@@ -82,9 +119,8 @@ int main() {
 				}
 				system("cls");
 				
-				printVector(n, vet);
-				
 				if(d==1){
+					printVector(n, vet);
 					while(decision2!=n){ // loop for avoid mistake
 						// Inserting elements where pointed by user
 						printf("\nPlease info where did you want to add a number? 1 - %d\n", (n + 1));
@@ -130,16 +166,19 @@ int main() {
 						}
 					}
 				}else if(d==2&&n>1){
-					printf("\nPlease info where did you want to remove a number? 1 - %d\n", n);
-					scanf("%d", &ind);
-					ind--;
-					for(i=ind;i<(n-1);i++){
+					printVector(n, vet);
+					while(ind2<1||ind2>n){
+						printf("\nPlease info where did you want to remove a number? 1 - %d\n", n);
+						scanf("%d", &ind2);
+					}
+					ind2--;
+					for(i=ind2;i<(n-1);i++){
 						vet[i] = vet[(i+1)];
 					}
 					n--;
 					system("cls");
 					
-					printVector2(n, vet); // Print Vector
+					printVector2(n = 2, vet); // Print Vector
 					
 					printf("\n\n%s\n", rollback); //Decision for continue or not
 					scanf("%d", &decision);
@@ -155,6 +194,7 @@ int main() {
 						decision = 1;
 					}
 				}else if(d==2&&n<2){
+					printVector(n, vet);
 					printf("\n\n------This vector is too small for delete elements.------\n");
 					printf("\n\n%s\n", rollback); //Decision for continue or not
 					scanf("%d", &decision);
@@ -169,6 +209,8 @@ int main() {
 						printf(autor);
 						decision = 1;
 					}
+				}else if(d==3){
+					readAndPrintVector(n2, n3, m, vet2, vet3, vet4);
 				}
 				else{
 					system("cls");
@@ -180,8 +222,3 @@ int main() {
 	}
 	return 0;
 }
-
-void readVector(int tam, int count, int vetor[]){
-	
-}
-
