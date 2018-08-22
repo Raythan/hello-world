@@ -1,5 +1,42 @@
+// Mixar 2 matrizes
+// Multiplicação de matrizes
+// Lista de compradores e produtos
+
 #include <stdlib.h>
 #include <stdio.h>
+
+void printVector(int n, int vet[]){
+	int i = 0;
+	printf("\n +--------------------+\n| This is your vector! |\n +--------------------+\n ");
+	for(i=0;i<n;i++){
+		printf("-------");
+	}
+	printf("\n|");
+	for(i=0;i<n;i++){
+		printf(" [ %d ] ", vet[i]);
+	}
+	printf("|\n ");
+	for(i=0;i<n;i++){
+		printf("-------");
+	}
+	printf("\n");
+}
+
+void printVector2(int n, int vet[]){
+	int i = 0;
+	printf("\n +------------------------+\n| Now this is your vector! |\n +------------------------+\n ");
+	for(i=0;i<n;i++){
+		printf("-------");
+	}
+	printf("\n|");
+	for(i=0;i<n;i++){
+		printf(" [ %d ] ", vet[i]);
+	}
+	printf("|\n ");
+	for(i=0;i<n;i++){
+		printf("-------");
+	}
+}
 
 int main() {
 	//Add or remove numbers inside an array of integer
@@ -32,7 +69,8 @@ int main() {
 			system("cls");
 			{
 				if((newVet==0 && d==1) || (newVet==0 && d==2)){ // Vector building
-						while(n==0){
+					while(n==0){
+						//void lerVetor(int n, int i, int vet[]);
 						printf("Plase info the vector size: \n");
 						scanf("%d", &n);
 						system("cls");
@@ -43,19 +81,9 @@ int main() {
 					}
 				}
 				system("cls");
-				printf("\n +--------------------+\n| This is your vector! |\n +--------------------+\n ");
-				for(i=0;i<n;i++){
-					printf("-------");
-				}
-				printf("\n|");
-				for(i=0;i<n;i++){
-					printf(" [ %d ] ", vet[i]);
-				}
-				printf("|\n ");
-				for(i=0;i<n;i++){
-					printf("-------");
-				}
-				printf("\n");
+				
+				printVector(n, vet);
+				
 				if(d==1){
 					while(decision2!=n){ // loop for avoid mistake
 						// Inserting elements where pointed by user
@@ -81,19 +109,9 @@ int main() {
 						aux = vet[i]; vet[i] = add; add = aux;
 					}
 					system("cls");
-					printf("\n +------------------------+\n| Now this is your vector! |\n +------------------------+\n ");
-					// Vector print
-					for(i=0;i<n;i++){
-						printf("-------");
-					}
-					printf("\n|");
-					for(i=0;i<n;i++){
-						printf(" [ %d ] ", vet[i]);
-					}
-					printf("|\n ");
-					for(i=0;i<n;i++){
-						printf("-------");
-					}
+					
+					printVector2(n, vet);
+				
 					while(decision3>2){ // loop for avoid mistake // Loop for avoid mistake
 						printf("\n\n%s\n", rollback); //Decision for continue or not
 						scanf("%d", &decision);
@@ -120,19 +138,9 @@ int main() {
 					}
 					n--;
 					system("cls");
-					printf("\n +------------------------+\n| Now this is your vector! |\n +------------------------+\n ");
-					// Vector print
-					for(i=0;i<n;i++){
-						printf("-------");
-					}
-					printf("\n|");
-					for(i=0;i<n;i++){
-						printf(" [ %d ] ", vet[i]);
-					}
-					printf("|\n ");
-					for(i=0;i<n;i++){
-						printf("-------");
-					}
+					
+					printVector2(n, vet); // Print Vector
+					
 					printf("\n\n%s\n", rollback); //Decision for continue or not
 					scanf("%d", &decision);
 					if(decision==2){
@@ -172,3 +180,8 @@ int main() {
 	}
 	return 0;
 }
+
+void readVector(int tam, int count, int vetor[]){
+	
+}
+
