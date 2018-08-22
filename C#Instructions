@@ -55,24 +55,42 @@ Model é uma classe com nome 'Case Sensitive'
   ->>> Para chamar um model, posso usar o Controller, 
   Precisa importar a classe (Bibliotec, Model a que estiver se referindo, clicando com o botão direito ou incluindo no inicio da página
   Exemplo: """"using Introducao.Models;"""
-  Exemplo no escopo:  public ActionResult Index()
-                          {
-                              var pessoa = new Pessoa()
-                              {
-                                  PessoaId = 1;
-                              }
-                              return View();
-                          }
-      /// CONTINUAR DAQUI <<<<<<<<<<<<<<--------------
-      
-      
----------------
+  Exemplo no escopo:  
+      public ActionResult Index()
+        {
+            var pessoa = new Pessoa   <<<< Sem parênteses
+            {
+                PessoaId = 1,                       <<<<<<<<<< Não precisa
+                Nome = "Hugo Vasconcelos",          <<<<<<<<<< declarar o
+                Tipo = "Administrador"              <<<<<<<<<< tipo de variável
+            };
+
+            var pessoa2 = new Pessoa();  <<<< Maneira não recomendada em MVC
+            pessoa2.Nome;
+
+            ViewData["CampoDoArray = atributo"] = variavel.atributo
+            Exemplo: ViewData["PessoaId"] = pessoa.PessoaId;  <<<<<<<<<<  Associação do
+                     ViewData["Nome"] = pessoa.Nome;          <<<<<<<<<<  objeto com o
+                     ViewData["Tipo"] = pessoa.Tipo;          <<<<<<<<<<  Model
+                     
+            Exemplo2: ViewBag.Id = pessoa.PessoaId;
+                      ViewBag.Nome = pessoa.Nome;
+                      ViewBag.Tipo = pessoa.Tipo;
+
+            return View();
+        }
+ Para fazer a chamada do ViewData, por exemplo no Index.cshtml pois no exemplo está se usando a ActionResult Index, 
+ que retorna a View Index.cshtml eu utilizo a mesma sintaxe: 
+ Chamada ViewData: <p> @ViewData["PessoaId"] </p>
+                   <p> @ViewData["Nome"] </p>
+                   <p> @ViewData["Tipo"] </p>
+ Chamada ViewBag: <p> @ViewBag.Id </p>
+                  <p> @ViewBag.Nome </p>
+                  <p> @ViewBag.Tipo </p>
+                  
+--------------- /// CONTINUAR DAQUI <<<<<<<<<<<<<<--------------
 Quando declarar parâmetros no C# nos métodos, especificar cada tipo de variável dentro dos parênteses
 ---------------
-class
-ViewData["PropDoObjeto"] = Valor
-ViewBag.PropDoObjeto = Valor
-------------
 //Arquivo com nome do método que vai requisitar
 Chamada1.cshtml
 ---
