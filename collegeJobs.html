@@ -41,7 +41,6 @@ fieldset {
 }
 </style>
 <script type="text/javascript">
-	var selectionForSemester = ["first semester","second semester","third semester","fourth semester","fifth semester","sixth semester","seventh semester","eighth semester",];
 	var i, estados = ["Acre","Alagoas","Amapá","Amazonas","Bahia","Ceará","Distrito Federal","Espírito Santo","Goiás","Maranhão","Mato Grosso","Mato Grosso do Sul","Minas Gerais","Pará","Paraíba","Paraná","Pernambuco","Piauí","Rio de Janeiro","Rio Grande do Norte","Rio Grande do Sul","Rondônia","Roraima","Santa Catarina","São Paulo","Sergipe","Tocantins"];
 	var formBack = `<div id='formBack' style='border:solid;padding:0.5%;text-align:center;'>Você pode compilar esse código no Dev c++</br>Só não está adequadamente adentado!</br><form action='index.html'><input type='submit' onclick='location.reload()' value='Voltar!'/></form></div></br>----------------------- INICIO DO CÓDIGO --------------------------------"`,
 	formBack2 = `<div id='formBack2' style='padding:0.5%;'><form action='index.html'><input type='submit' onclick='location.reload()' value='Voltar!'/></form></div></br>`;
@@ -56,20 +55,21 @@ fieldset {
 		`,
 		middle = `
 		<form method="GET">
-			<select style="width:100%;height:10%;font-size:20px;text-align:center;">
+			<select onchange="SelectSemester()" id="selectSemester" style="width:100%;height:10%;font-size:20px;text-align:center;">
 				<option>Select some...</option>
-				<option name="selectionForSemester[0]">1º Semester</option>
-				<option name="selectionForSemester[1]">2º Semester</option>
-				<option name="selectionForSemester[2]">3º Semester</option>
-				<option name="selectionForSemester[3]">4º Semester</option>
-				<option name="selectionForSemester[4]">5º Semester</option>
-				<option name="selectionForSemester[5]">6º Semester</option>
-				<option name="selectionForSemester[6]">7º Semester</option>
-				<option name="selectionForSemester[7]">8º Semester</option>
+				<option value="1">1º Semester</option>
+				<option value="2">2º Semester</option>
+				<option value="3">3º Semester</option>
+				<option value="4">4º Semester</option>
+				<option value="5">5º Semester</option>
+				<option value="6">6º Semester</option>
+				<option value="7">7º Semester</option>
+				<option value="8">8º Semester</option>
 			</select>
 		</form>
+		<div id="formsForSelect"></div>
 		`, bottom = `
-			<div style='text-align:center;padding-bottom:3%;margin-bottom:0px;font-size:20px;'>
+			<hr><div style='text-align:center;padding-bottom:3%;margin-bottom:0px;font-size:20px;'>
 			This is a free code developed by:</br>
 			Raythan Padovani Abreu Machado
 			</div>
@@ -85,14 +85,53 @@ fieldset {
 			${frontSending.bottom}
 		`;
 		document.body.innerHTML = insert;
-		for(i=0;i<8;i++){
-			if(selectionForSemester[i]){
-				alert(selectionForSemester[i]);
-			}
+	}
+	
+	function SelectSemester(){
+		var pickSelect = document.getElementById("selectSemester").value;
+		if(pickSelect==1){
+			formSem1();
+		}else if(pickSelect==2){
+			formSem2();
+		}else if(pickSelect==3){
+			formSem3();
+		}else if(pickSelect==4){
+			formSem4();
+		}else if(pickSelect==5){
+			formSem5();
+		}else if(pickSelect==6){
+			formSem6();
+		}else if(pickSelect==7){
+			formSem7();
+		}else if(pickSelect==8){
+			formSem8();
 		}
 	}
 	
-	
+	function formSem1(){
+		document.getElementById("formsForSelect").innerHTML = "Funcionando Normalmente!";
+	}
+	function formSem2(){
+		document.getElementById("formsForSelect").innerHTML = "Funcionando Normalmente!";
+	}
+	function formSem3(){
+		document.getElementById("formsForSelect").innerHTML = "Funcionando Normalmente!";
+	}
+	function formSem4(){
+		document.getElementById("formsForSelect").innerHTML = "Funcionando Normalmente!";
+	}
+	function formSem5(){
+		document.getElementById("formsForSelect").innerHTML = "Scripts on going!";
+	}
+	function formSem6(){
+		document.getElementById("formsForSelect").innerHTML = "Scripts on going!";
+	}
+	function formSem7(){
+		document.getElementById("formsForSelect").innerHTML = "Scripts on going!";
+	}
+	function formSem8(){
+		document.getElementById("formsForSelect").innerHTML = "Scripts on going!";
+	}
 	//
 	// DECLARAÇÃO DO FORMULÁRIO INICIAL E BOTÃO PARA CHAMAR A FUNÇÃO
 	function selecao(){
@@ -144,6 +183,289 @@ fieldset {
 		<sup>Sobescrito</sup></br>
 		<sub>Subscrito</sub></br>
 		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp // Espaços em branco</br>
+		<ol>Lista ordenada</ol></br>
+		<li>Itens de lista</li></br>
+		<ul>Lista não ordenada</ul></br>
+			<dl>
+				Lista de termos.
+				<dt>
+					Termo.	
+				</dt>
+					<dd>
+						Definição do termo.
+					</dd>
+			</dl></br>
+		<a href="arquivo.html">Cria Hyperlink para aquivos no mesmo diretório.	</a></br>
+		<a href="diretorio/arquivo.html">Cria Hyperlink para arquivo em algum diretório</a></br>
+		<a href="../arquivo.html">Cria Hyperlink para arquivo em algum diretório superior</a></br>
+		<a href="mailto:raythan100@yahoo.com.br">Email para mim mesmo!</a><br>
+		<a href="http://www.google.com.br" target="_blank">Abre link em nova aba</a></br>
+		-----------------------------------------------------
+		<h1 id="top">Link interno</h1>
+		<p><a href="#top">Link para o topo</a></p>
+		-----------------------------------------------------
+		<a href="endereço#idDoQueVocêQuerlink"></a>
+
+
+
+		<a>	Defines a hyperlink	</a>
+		<abbr>	Defines an abbreviation or an acronym	</abbr>
+		<acronym>	"Not supported in HTML5. Use <abbr> instead.
+		Defines an acronym"	</acronym>
+		<address>	Defines contact information for the author/owner of a document	</address>
+		<applet>	"Not supported in HTML5. Use <embed> or <object> instead.
+		Defines an embedded applet"	</applet>
+		<area>	Defines an area inside an image-map	</area>
+		<article>	Defines an article	</article>
+		<aside>	Defines content aside from the page content	</aside>
+		<audio>	Defines sound content	</audio>
+		<b>	Defines bold text	</b>
+		<base>	Specifies the base URL/target for all relative URLs in a document	</base>
+		<basefont>	"Not supported in HTML5. Use CSS instead.
+		Specifies a default color, size, and font for all text in a document"	</basefont>
+		<bdi>	Isolates a part of text that might be formatted in a different direction from other text outside it	</bdi>
+		<bdo>	Overrides the current text direction	</bdo>
+		<big>	"Not supported in HTML5. Use CSS instead.
+		Defines big text"	</big>
+		<blockquote>	Defines a section that is quoted from another source	</blockquote
+		<body>	Defines the document's body	</body>
+		<br>	Defines a single line break	</br>
+		<button>	Defines a clickable button	</button>
+		<canvas>	Used to draw graphics, on the fly, via scripting (usually JavaScript)	</canvas>
+		<caption>	Defines a table caption	</caption>
+		<center>	"Not supported in HTML5. Use CSS instead.
+		Defines centered text"	</center>
+		<cite>	Defines the title of a work	</cite>
+		<code>	Defines a piece of computer code	</code>
+		<col>	Specifies column properties for each column within a <colgroup> element 	</col>
+		<colgroup>	Specifies a group of one or more columns in a table for formatting	</colgroup>
+		<data>	Links the given content with a machine-readable translation	</data>
+		<datalist>	Specifies a list of pre-defined options for input controls	</datalist>
+		<dd>	Defines a description/value of a term in a description list	</dd>
+		<del>	Defines text that has been deleted from a document	</del>
+		<details>	Defines additional details that the user can view or hide	</details>
+		<dfn>	Represents the defining instance of a term	</dfn>
+		<dialog>	Defines a dialog box or window	</dialog>
+		<dir>	"Not supported in HTML5. Use <ul> instead.
+		Defines a directory list"	</dir>
+		<div>	Defines a section in a document	</div>
+		<dl>	Defines a description list	</dl>
+		<dt>	Defines a term/name in a description list	</dt>
+		<em>	Defines emphasized text 	</em>
+		<embed>	Defines a container for an external (non-HTML) application	</embed>
+		<fieldset>	Groups related elements in a form	</fieldset>
+		<figcaption>	Defines a caption for a <figure> element	</figcaption
+		<figure>	Specifies self-contained content	</figure>
+		<font>	"Not supported in HTML5. Use CSS instead.
+		Defines font, color, and size for text"	</font>
+		<footer>	Defines a footer for a document or section	</footer>
+		<form>	Defines an HTML form for user input	</form>
+		<frame>	"Not supported in HTML5.
+		Defines a window (a frame) in a frameset"	</frame>
+		<frameset>	"Not supported in HTML5.
+		Defines a set of frames"	</frameset>
+		<h1> to <h6>	Defines HTML headings	</h1> to <h6
+		<head>	Defines information about the document	</head>
+		<header>	Defines a header for a document or section	</header>
+		<hr>	Defines a thematic change in the content	</hr>
+		<html>	Defines the root of an HTML document	</html>
+		<i>	Defines a part of text in an alternate voice or mood	</i>
+		<iframe>	Defines an inline frame	</iframe>
+		<img>	Defines an image	</img>
+		<input>	Defines an input control	</input>
+		<ins>	Defines a text that has been inserted into a document	</ins>
+		<kbd>	Defines keyboard input	</kbd>
+		<label>	Defines a label for an <input> element	</label>
+		<legend>	Defines a caption for a <fieldset> element	</legend>
+		<li>	Defines a list item	</li>
+		<link>	Defines the relationship between a document and an external resource (most used to link to style sheets)	</link>
+		<main>	Specifies the main content of a document	</main>
+		<map>	Defines a client-side image-map	</map>
+		<mark>	Defines marked/highlighted text	</mark>
+		<meta>	Defines metadata about an HTML document	</meta>
+		<meter>	Defines a scalar measurement within a known range (a gauge)	</meter>
+		<nav>	Defines navigation links	</nav>
+		<noframes>	"Not supported in HTML5.
+		Defines an alternate content for users that do not support frames"	</noframes>
+		<noscript>	Defines an alternate content for users that do not support client-side scripts	</noscript>
+		<object>	Defines an embedded object	</object>
+		<ol>	Defines an ordered list	</ol>
+		<optgroup>	Defines a group of related options in a drop-down list	</optgroup>
+		<option>	Defines an option in a drop-down list	</option>
+		<output>	Defines the result of a calculation	</output>
+		<p>	Defines a paragraph	</p>
+		<param>	Defines a parameter for an object	</param>
+		<picture>	Defines a container for multiple image resources	</picture>
+		<pre>	Defines preformatted text	</pre>
+		<progress>	Represents the progress of a task	</progress>
+		<q>	Defines a short quotation	</q>
+		<rp>	Defines what to show in browsers that do not support ruby annotations	</rp>
+		<rt>	Defines an explanation/pronunciation of characters (for East Asian typography)	</rt>
+		<ruby>	Defines a ruby annotation (for East Asian typography)	</ruby>
+		<s>	Defines text that is no longer correct	</s>
+		<samp>	Defines sample output from a computer program	</samp>
+		<section>	Defines a section in a document	</section>
+		<select>	Defines a drop-down list	</select>
+		<small>	Defines smaller text	</small>
+		<source>	Defines multiple media resources for media elements (<video> and <audio>)	</source>
+		<span>	Defines a section in a document	</span>
+		<strike>	"Not supported in HTML5. Use <del> or <s> instead.
+		Defines strikethrough text"	</strike>
+		<strong>	Defines important text	</strong>
+		<style>	Defines style information for a document	</style>
+		<sub>	Defines subscripted text	</sub>
+		<summary>	Defines a visible heading for a <details> element	</summary>
+		<sup>	Defines superscripted text	</sup>
+		<svg>	Defines a container for SVG graphics	</svg>
+		<table>	Defines a table	</table>
+		<tbody>	Groups the body content in a table	</tbody>
+		<td>	Defines a cell in a table	</td>
+		<template>	Defines a template	</template>
+		<textarea>	Defines a multiline input control (text area)	</textarea>
+		<tfoot>	Groups the footer content in a table	</tfoot>
+		<th>	Defines a header cell in a table	</th>
+		<thead>	Groups the header content in a table	</thead>
+		<time>	Defines a date/time	</time>
+		<title>	Defines a title for the document	</title>
+		<tr>	Defines a row in a table	</tr>
+		<track>	Defines text tracks for media elements (<video> and <audio>)	</track>
+		<tt>	"Not supported in HTML5. Use CSS instead.
+		Defines teletype text"	</tt>
+		<u>	Defines text that should be stylistically different from normal text	</u>
+		<ul>	Defines an unordered list	</ul>
+		<var>	Defines a variable	</var>
+		<video>	Defines a video or movie	</video>
+		<wbr>	Defines a possible line-break	</wbr>
+		<head>	Defines information about the document	</head>
+		<title>	Defines a title for the document	</title>
+		<body>	Defines the document's body	</body>
+		<h1> to <h6>	Defines HTML headings	</h1> to <h6
+		<p>	Defines a paragraph	</p>
+		<br>	Inserts a single line break	</br>
+		<hr>	Defines a thematic change in the content	</hr>
+		<!--...-->	Defines a comment	</!--...-->
+		<acronym>	"Not supported in HTML5. Use <abbr> instead.
+		Defines an acronym"	</acronym>
+		<abbr>	Defines an abbreviation or an acronym	</abbr>
+		<address>	Defines contact information for the author/owner of a document/article	</address>
+		<b>	Defines bold text	</b>
+		<bdi>	Isolates a part of text that might be formatted in a different direction from other text outside it	</bdi>
+		<bdo>	Overrides the current text direction	</bdo>
+		<big>	"Not supported in HTML5. Use CSS instead.
+		Defines big text"	</big>
+		<blockquote>	Defines a section that is quoted from another source	</blockquote
+		<center>	"Not supported in HTML5. Use CSS instead.
+		Defines centered text"	</center>
+		<cite>	Defines the title of a work	</cite>
+		<code>	Defines a piece of computer code	</code>
+		<del>	Defines text that has been deleted from a document	</del>
+		<dfn>	Represents the defining instance of a term	</dfn>
+		<em>	Defines emphasized text 	</em>
+		<font>	"Not supported in HTML5. Use CSS instead.
+		Defines font, color, and size for text"	</font>
+		<i>	Defines a part of text in an alternate voice or mood	</i>
+		<ins>	Defines a text that has been inserted into a document	</ins>
+		<kbd>	Defines keyboard input	</kbd>
+		<mark>	Defines marked/highlighted text	</mark>
+		<meter>	Defines a scalar measurement within a known range (a gauge)	</meter>
+		<pre>	Defines preformatted text	</pre>
+		<progress>	Represents the progress of a task	</progress>
+		<q>	Defines a short quotation	</q>
+		<rp>	Defines what to show in browsers that do not support ruby annotations	</rp>
+		<rt>	Defines an explanation/pronunciation of characters (for East Asian typography)	</rt>
+		<ruby>	Defines a ruby annotation (for East Asian typography)	</ruby>
+		<s>	Defines text that is no longer correct	</s>
+		<samp>	Defines sample output from a computer program	</samp>
+		<small>	Defines smaller text	</small>
+		<strike>	"Not supported in HTML5. Use <del> or <s> instead.
+		Defines strikethrough text"	</strike>
+		<strong>	Defines important text	</strong>
+		<sub>	Defines subscripted text	</sub>
+		<sup>	Defines superscripted text	</sup>
+		<template>	Defines a template	</template>
+		<time>	Defines a date/time	</time>
+		<tt>	"Not supported in HTML5. Use CSS instead.
+		Defines teletype text"	</tt>
+		<u>	Defines text that should be stylistically different from normal text	</u>
+		<var>	Defines a variable	</var>
+		<wbr>	Defines a possible line-break	</wbr>
+		<form>	Defines an HTML form for user input	</form>
+		<input>	Defines an input control	</input>
+		<textarea>	Defines a multiline input control (text area)	</textarea>
+		<button>	Defines a clickable button	</button>
+		<select>	Defines a drop-down list	</select>
+		<optgroup>	Defines a group of related options in a drop-down list	</optgroup>
+		<option>	Defines an option in a drop-down list	</option>
+		<label>	Defines a label for an <input> element	</label>
+		<fieldset>	Groups related elements in a form	</fieldset>
+		<legend>	Defines a caption for a <fieldset> element	</legend>
+		<datalist>	Specifies a list of pre-defined options for input controls	</datalist>
+		<output>	Defines the result of a calculation	</output>
+		<frame>	"Not supported in HTML5.
+		Defines a window (a frame) in a frameset"	</frame>
+		<frameset>	"Not supported in HTML5.
+		Defines a set of frames"	</frameset>
+		<noframes>	"Not supported in HTML5.
+		Defines an alternate content for users that do not support frames"	</noframes>
+		<iframe>	Defines an inline frame	</iframe>
+		<img>	Defines an image	</img>
+		<map>	Defines a client-side image-map	</map>
+		<area>	Defines an area inside an image-map	</area>
+		<canvas>	Used to draw graphics, on the fly, via scripting (usually JavaScript)	</canvas>
+		<figcaption>	Defines a caption for a <figure> element	</figcaption
+		<figure>	Specifies self-contained content	</figure>
+		<picture>	Defines a container for multiple image resources	</picture>
+		<svg>	Defines a container for SVG graphics	</svg>
+		<audio>	Defines sound content	</audio>
+		<source>	Defines multiple media resources for media elements (<video>, <audio> and <picture>)	</source>
+		<track>	Defines text tracks for media elements (<video> and <audio>)	</track>
+		<video>	Defines a video or movie	</video>
+		<a>	Defines a hyperlink	</a>
+		<link>	Defines the relationship between a document and an external resource (most used to link to style sheets)	</link>
+		<nav>	Defines navigation links	</nav>
+		<ul>	Defines an unordered list	</ul>
+		<ol>	Defines an ordered list	</ol>
+		<li>	Defines a list item	</li>
+		<dir>	"Not supported in HTML5. Use <ul> instead.
+		Defines a directory list"	</dir>
+		<dl>	Defines a description list	</dl>
+		<dt>	Defines a term/name in a description list	</dt>
+		<dd>	Defines a description of a term/name in a description list	</dd>
+		<table>	Defines a table	</table>
+		<caption>	Defines a table caption	</caption>
+		<th>	Defines a header cell in a table	</th>
+		<tr>	Defines a row in a table	</tr>
+		<td>	Defines a cell in a table	</td>
+		<thead>	Groups the header content in a table	</thead>
+		<tbody>	Groups the body content in a table	</tbody>
+		<tfoot>	Groups the footer content in a table	</tfoot>
+		<col>	Specifies column properties for each column within a <colgroup> element	</col>
+		<colgroup>	Specifies a group of one or more columns in a table for formatting	</colgroup>
+		<style>	Defines style information for a document	</style>
+		<div>	Defines a section in a document	</div>
+		<span>	Defines a section in a document	</span>
+		<header>	Defines a header for a document or section	</header>
+		<footer>	Defines a footer for a document or section	</footer>
+		<main>	Specifies the main content of a document	</main>
+		<section>	Defines a section in a document	</section>
+		<article>	Defines an article	</article>
+		<aside>	Defines content aside from the page content	</aside>
+		<details>	Defines additional details that the user can view or hide	</details>
+		<dialog>	Defines a dialog box or window	</dialog>
+		<summary>	Defines a visible heading for a <details> element	</summary>
+		<data>	Links the given content with a machine-readable translation	</data>
+		<head>	Defines information about the document	</head>
+		<meta>	Defines metadata about an HTML document	</meta>
+		<base>	Specifies the base URL/target for all relative URLs in a document	</base>
+		<basefont>	"Not supported in HTML5. Use CSS instead.
+		Specifies a default color, size, and font for all text in a document"	</basefont>
+		<noscript>	Defines an alternate content for users that do not support client-side scripts	</noscript>
+		<applet>	"Not supported in HTML5. Use <embed> or <object> instead.
+		Defines an embedded applet"	</applet>
+		<embed>	Defines a container for an external (non-HTML) application	</embed>
+		<object>	Defines an embedded object	</object>
+		<param>	Defines a parameter for an object	</param>
+
 		`;
 		const modelo2 = {
 			form: tagsHtml
@@ -992,5 +1314,6 @@ var lista4info = [`
 </head>
 <body>
 <script>frontEnd();</script>
+
 </body>
 </html>
