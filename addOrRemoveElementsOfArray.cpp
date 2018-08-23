@@ -28,10 +28,12 @@ int main() {
 	decision2 = 0, // Decision for avoid invalid input on insert elements on array
 	newVet = 0, // Variable used for markup in the first printable text
 	n = 0, // Size of the array
-	n1 = 0,
-	n2 = 0,
-	n3 = 0,
-	i, // Counter
+	n1 = 0, // Size of the first array in mix arrays
+	n2 = 0, // Size of the second array in mix arrays
+	n3 = 0, // Size of the third array in mix arrays
+	i, // Counter; index of third array in mix arrays
+	i2, // index of first array in mix arrays
+	i3, // index of second array in mix arrays
 	d, // Variable used for markup
 	add, // Variable used for add the number, and next used for add the next number in the array
 	aux, // Variable for keep the value of the next position on array.
@@ -177,17 +179,19 @@ int main() {
 						printf("The element in vector2[%d]: \n", i+1);
 						scanf("%d", &vet3[i]);
 					}
-					for(i=0;i<n1||i<n2;i++){
-						if(vet2[i]!=NULL){
-							vet4[i] = vet2[i];
-							i++;
-						}else if(vet3[i]!=NULL){
-							vet4[i] = vet3[i];
-							i++;
+					n3 = n1 + n2;
+					for(i=0,i2=0,i3=0;i<n3;i++){
+						if(i2<n2&&i%2==0){
+							vet4[i] = vet2[i2];
+							i2++;
+						}else if(i3<n3&&i%2!=0){
+							vet4[i] = vet3[i3];
+							i3++;
 						}
-						printf("Vector3 [%d]: %d, [%d]: %d\n", i-1, i, vet4[(i-1)], vet4[i]);
 					}
-					
+					for(i=0;i<n3;i++){
+						printf("Vector3 [%d]: %d\n", i, vet4[i]);
+					}
 					scanf("%d", &i);
 					
 				}
