@@ -7,14 +7,15 @@ public class HelloWorld { // Vai gerar erro no repl.it, o nome da classe princip
 		
 		Scanner teclado = new Scanner(System.in);
 		int idade, x;
+		final int LIMITE = 65; // Declaração de constante
 		
 		System.out.println("Digite a sua idade: ");
 		idade = teclado.nextInt();
 		
-		x = 65 - idade;
+		x = LIMITE - idade;
 		
 		System.out.println("Tenho " + idade + " anos!");
-		if(idade<65)
+		if(idade < LIMITE)
 		{
 			System.out.println("Faltam " + x + " anos para aposentadoria!");
 		}
