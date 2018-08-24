@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class HelloWorld { // Vai gerar erro no repl.it, o nome da classe principal precisa ter o mesmo do arquivo
+// Classe do tipo executável, MAIN
+	//Shift + Alt + R - Rename de variáveis
+	public static void main(String[] args) { 
+		
+		Scanner teclado = new Scanner(System.in);
+		int idade, x;
+		
+		System.out.println("Digite a sua idade: ");
+		idade = teclado.nextInt();
+		
+		x = 65 - idade;
+		
+		System.out.println("Tenho " + idade + " anos!");
+		if(idade<65)
+		{
+			System.out.println("Faltam " + x + " anos para aposentadoria!");
+		}
+		else
+		{
+			System.out.println("Você já pode se aposentar");
+		}
+	}
+}
