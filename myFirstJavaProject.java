@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class HelloWorld {
+public class HelloWorld { // Vai gerar erro no repl.it, o nome da classe principal precisa ter o mesmo do arquivo
 
 	public static void main(String[] args) {
 		
