@@ -175,24 +175,36 @@ int main() {
 						printf("The element in vector1[%d]: \n", i+1);
 						scanf("%d", &vet2[i]);
 					}
+					printf("\nI: %d\n", i);
 					for(i=0;i<n2;i++){
 						printf("The element in vector2[%d]: \n", i+1);
 						scanf("%d", &vet3[i]);
 					}
+					printf("\nI: %d, N1: %d, N2: %d, N3: %d\n\n\n", i, n1, n2, n3);
+					system("pause");
+					system("cls");
+					for(i=0;i<n1;i++){
+						printf("Vector1[%d]: %d\n", i, vet2[i]);
+					}
+					for(i=0;i<n2;i++){
+						printf("Vector2[%d]: %d\n", i, vet3[i]);
+					}
+					system("pause");
 					n3 = n1 + n2;
 					for(i=0,i2=0,i3=0;i<n3;i++){
-						if(i2<n2&&i%2==0){
+						if(i2<n1&&i%2==0){
 							vet4[i] = vet2[i2];
 							i2++;
-						}else if(i3<n3&&i%2!=0){
+						}else if(i3<n2&&i%2!=0){
 							vet4[i] = vet3[i3];
 							i3++;
 						}
 					}
 					for(i=0;i<n3;i++){
-						printf("Vector3 [%d]: %d\n", i, vet4[i]);
+						printf("Vector3[%d]: %d\n", i, vet4[i]);
 					}
-					scanf("%d", &i);
+					system("pause"); // Rever a lógica
+					
 					
 				}
 				else{
