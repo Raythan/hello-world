@@ -25,3 +25,60 @@ public class HelloWorld { // Vai gerar erro no repl.it, o nome da classe princip
 		}
 	}
 }
+
+///////////////////////////////////////////////////
+
+import java.util.Scanner;
+
+public class ParOuImpar {
+
+	public static void main(String[] args) {
+		
+		Scanner teclado = new Scanner(System.in);
+		int num, resto;
+		
+		System.out.println("Digite um número inteiro: ");
+		num = teclado.nextInt();
+		
+		resto = num % 2;
+		
+		if(resto == 0)
+		{
+			System.out.println(num + " é PAR!");
+		}
+		else
+		{
+			System.out.println(num + " é IMPAR");
+		}
+		
+	}
+
+}
+
+///////////////////////////////////////////////////
+
+import java.util.Scanner;
+
+public class VizinhosPares {
+
+	public static void main(String[] args) {
+		Scanner teclado = new Scanner(System.in);
+		int num, vizinho, resto;
+		
+		System.out.println("Digite um número inteiro: ");
+		num = teclado.nextInt();
+		
+		resto = num % 2;
+		if(resto == 0)
+		{
+			System.out.println("Os vizinhos são: " + (num-2) + " e " + (num+2));
+		}
+		else
+		{
+			System.out.println("Os vizinhos são: " + (num-1) + " e " + (num+1));
+		}
+
+	}
+
+}
+
