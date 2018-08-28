@@ -105,6 +105,25 @@ Model é uma classe com nome 'Case Sensitive'
        <p>@Model.atributo->Tipo</p>
        <p>@Model.atributo->Nome</p>
        
+       
+       
+---------------------------------------------
+
+[HttpPost] <<<<<< Informa ao controler que vai receber a informação via Post
+        public ActionResult Lista() // Ainda faltam parâmetros para receber caso o usuário queira mudar os formulários
+        {
+            return View();
+        }
+        
+<form action="Home/Lista" method="POST"> // Formulário criado no exemplo para ser sseguido acima Obs.: action="Controller/MétodoDoController
+    <fieldset>
+        <legend>Informações de Pessoas</legend>
+        <p>
+            <label for="Nome">Nome</label><br />
+            <input type="text" value="@Model.Nome" name="Nome"/> // Regatar valor do objeto pelo @Model em value
+        </p>
+    </fieldset>
+</form>
                   
 --------------- /// CONTINUAR DAQUI <<<<<<<<<<<<<<--------------
 Quando declarar parâmetros no C# nos métodos, especificar cada tipo de variável dentro dos parênteses
