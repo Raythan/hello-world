@@ -88,24 +88,27 @@ Model é uma classe com nome 'Case Sensitive'
                   <p> @ViewBag.Nome </p>
                   <p> @ViewBag.Tipo </p>
                   
+ Chamada ViewTipada == O método no caso Index vai dar um return com o nome do modelo, no caso 'pessoa' 
+            public ActionResult Index()
+              {
+                  var pessoa = new Pessoa   <<<< Sem parênteses
+                  {
+                      PessoaId = 1,                       <<<<<<<<<< Não precisa
+                      Nome = "Hugo Vasconcelos",          <<<<<<<<<< declarar o
+                      Tipo = "Administrador"              <<<<<<<<<< tipo de variável
+                  };
+                  return(pessoa);  <<<<<<< Nome do modelo que vai retornar
+              }
+       Na pasta do modelo preciso fazer a chamada...
+       @model NomeDoProjeto->Introducao.PastaDeModelos->Models.NomeDaClasse->Pessoa // Desconsiderar as setas, são referências
+       <p>@Model.atributo->PessoaId</p>
+       <p>@Model.atributo->Tipo</p>
+       <p>@Model.atributo->Nome</p>
+       
+                  
 --------------- /// CONTINUAR DAQUI <<<<<<<<<<<<<<--------------
 Quando declarar parâmetros no C# nos métodos, especificar cada tipo de variável dentro dos parênteses
 ---------------
-//Arquivo com nome do método que vai requisitar
-Chamada1.cshtml
----
-//Fazer chamada de modelo
-@ NomeDoProjeto.PastaComModelos.NomeDaClasseComModelo
----
-
-@{
- ViewBag.Title = "Título da Página";
-}
-//TAGS HTML
-<h1></h1>
-<p>@ViewData["NomeDaPropObjeto"] </p>
-<p>@ViewBag.NomeDaPropObjeto</p>
---- <p>@Model.NomeDaProp</p>
 -------------
 Obs.: Sempre que um método receber informações de formulários de outra página, preciso informar para o método o comando [HttpPost] e os parâmetros
 -------------
