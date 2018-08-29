@@ -1,6 +1,30 @@
-// Mixar 2 matrizes
 // Multiplicação de matrizes
 // Lista de compradores e produtos
+/*
+struct student
+{
+  int num;
+  float dec;
+  char vet[20];
+} variavel, variavel2;
+
+struct student variavel;
+
+variavel.num = 0;
+variavel = {0, 2.4, "nome"};
+-----------------------------------------------------------------
+typedef struct student
+{	
+  int num;
+  float dec;
+  char vet[20];
+}
+
+student variavel;
+
+quando estiver trabalhando com ponteiro o acesso aos elementos não é feito por . mas por ->
+
+*/
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -22,15 +46,23 @@ void printVector(int n, int vet[]){
 	printf("\n");
 }
 
+void readVector(int nIns, int vetIns[]){
+	int i;
+	for(i=0;i<nIns;i++){
+		printf("Element on I[%d]: ", i);
+		scanf("%d", &vetIns[i]);
+	}
+}
+
 int main() {
 	//Add or remove numbers inside an array of integer
 	int decision = 0, // Decision for loop the architecture while the user wants
 	decision2 = 0, // Decision for avoid invalid input on insert elements on array
 	newVet = 0, // Variable used for markup in the first printable text
 	n = 0, // Size of the array
-	n1 = 0, // Size of the first array in mix arrays
-	n2 = 0, // Size of the second array in mix arrays
-	n3 = 0, // Size of the third array in mix arrays
+	n2 = 0, // Size of the first array in mix arrays
+	n3 = 0, // Size of the second array in mix arrays
+	n4 = 0, // Size of the third array in mix arrays
 	i, // Counter; index of third array in mix arrays
 	i2, // index of first array in mix arrays
 	i3, // index of second array in mix arrays
@@ -38,9 +70,9 @@ int main() {
 	add, // Variable used for add the number, and next used for add the next number in the array
 	aux, // Variable for keep the value of the next position on array.
 	vet[n], // Array used on the 2 first problems.
-	vet2[n1],// Array used for solve mix 2 arrays
-	vet3[n2], // Array used for solve mix 2 arrays
-	vet4[n3], // Array used for solve mix 2 arrays
+	vet2[n2],// Array used for solve mix 2 arrays
+	vet3[n3], // Array used for solve mix 2 arrays
+	vet4[n4], // Array used for solve mix 2 arrays
 	ind, // Decision that you choise for solve what index you want to add.
 	ind2 = 0; // Decision that you choise for solve what index you want to remove.
 	char autor[] = ("\n\nClosing software down!\nThis software have been produced and distribuited for\nRaythan Padovani Abreu Machado.");
@@ -50,15 +82,16 @@ int main() {
 			char rollback[] = ("Do you want to exit?\n(1) - Yes.\n(2) - No."), // Finalização do software
 			option1[] = ("1 - Increase elements on N position of a N size vector.\n"), // Operation for input elements
 			option2[] = ("2 - Decrease elements of N position of a N size vector.\n"), // Operation for remove elements
-			option3[] = ("0 or 4+ - For exit!\n"), // Query for exit script
+			option3[] = ("0 or 5+ - For exit!\n"), // Query for exit script
 			option4[] = ("Do you want to use the same vector?\n(1) - Yes.\n(2) - No."), // Query for use the same vector
-			option5[] = ("3 - Get the result of 2 ordenated arrays.\n");
+			option5[] = ("3 - Get the result of 2 ordenated arrays.\n"),
+			option6[] = ("4 - Multiple matrix.\n");
 			system("cls");
 			if(newVet==0){
 				printf("This software make 2 operations.\n");
 			}
 			printf("Please info what you want to do.\n");
-			printf(option1); printf(option2); printf(option5); printf(option3);
+			printf(option1); printf(option2); printf(option5); printf(option6); printf(option3);
 			scanf("%d", &d);
 			system("cls");
 			{
@@ -167,45 +200,32 @@ int main() {
 						decision = 1;
 					}
 				}else if(d==3){
-					printf("The size of vector 1: \n");
-					scanf("%d", &n1);
-					printf("The size of vector 2: \n");
+					printf("\nInfo the vector size: \n");
 					scanf("%d", &n2);
-					for(i=0;i<n1;i++){
-						printf("The element in vector1[%d]: \n", i+1);
-						scanf("%d", &vet2[i]);
-					}
-					printf("\nI: %d\n", i);
-					for(i=0;i<n2;i++){
-						printf("The element in vector2[%d]: \n", i+1);
-						scanf("%d", &vet3[i]);
-					}
-					printf("\nI: %d, N1: %d, N2: %d, N3: %d\n\n\n", i, n1, n2, n3);
-					system("pause");
+					readVector(n2, vet2);
 					system("cls");
-					for(i=0;i<n1;i++){
-						printf("Vector1[%d]: %d\n", i, vet2[i]);
-					}
-					for(i=0;i<n2;i++){
-						printf("Vector2[%d]: %d\n", i, vet3[i]);
-					}
-					system("pause");
-					n3 = n1 + n2;
-					for(i=0,i2=0,i3=0;i<n3;i++){
-						if(i2<n1&&i%2==0){
+					printf("\nInfo the vector2 size: \n");
+					scanf("%d", &n3);
+					readVector(n3, vet3);
+					system("cls");
+					printVector(n2, vet2);
+					printVector(n3, vet3);
+					n4 = n2 + n3; i = 0; i2 = 0; i3 = 0;
+					printf("N2: %d, N3: %d, N4: %d", n2, n3, n4);
+					printf("\nVector3: ");
+					while(i<n4){
+						if(vet2[i2]!=NULL){
 							vet4[i] = vet2[i2];
-							i2++;
-						}else if(i3<n2&&i%2!=0){
-							vet4[i] = vet3[i3];
-							i3++;
+							i2++; i++;
 						}
-					}
-					for(i=0;i<n3;i++){
-						printf("Vector3[%d]: %d\n", i, vet4[i]);
-					}
-					system("pause"); // Rever a lógica
-					
-					
+						if(vet3[i3]!=NULL){
+							vet4[i] = vet3[i3];
+							i3++; i++;
+						}
+					} // REVER A LÓGICA
+					printVector(n4, vet4);
+					printf("\n");
+					system("pause"); 
 				}
 				else{
 					system("cls");
