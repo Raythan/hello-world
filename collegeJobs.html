@@ -204,10 +204,12 @@ fieldset {
 		<h1 id="top">Link interno</h1>
 		<p><a href="#top">Link para o topo</a></p>
 		-----------------------------------------------------
-		<a href="endereço#idDoQueVocêQuerlink"></a>
+		<a href="endereço#idDoQueVocêQuerlink"></a><br />
+		<!--img src="LocalDoArquivo" alt="DescriçãoParaQuemNãoLê" title="Título" width="80" height="60"/-->
+		<img src="DonkeyKong.png" title="DonkeyKong"/><figcaption>Imagem Donkey Kong.</figcaption>
 
 
-
+		<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 		<a>	Defines a hyperlink	</a>
 		<abbr>	Defines an abbreviation or an acronym	</abbr>
 		<acronym>	"Not supported in HTML5. Use <abbr> instead.
@@ -1002,27 +1004,7 @@ fieldset {
 		
 	}
 	
-	function alerta(){
-		document.getElementById("buttonAlertStart").innerHTML = "<form><input type='submit' style='display:block;width:80px;height:30px;' onclick='alerta2()' value='Alerta!'/></form>";
-		document.getElementById("buttonAlertStart").style.display = "block";
-		document.getElementById("formApresentacao").style.display = "none";
-		if(document.getElementById("divAlertaExterno")){
-			document.getElementById("divAlertaExterno").innerHTML.style.display = "none";
-		}
-	}
 	
-	function alerta2(){
-		document.write("<div style='display:block;width:300px;height:300px;border:solid;margin-top:10%;margin-left:auto;margin-right:auto;' id='divAlertaExterno' class='classeAlertaExterno'>");
-		document.write("<div style='width:100%;height:65%;border:solid;margin-top:15%;margin-left:-1%;' id='divAlertaTitulo' class='classeAlertaTitulo'>");
-		document.write("<div style='width:100%;margin-top:65%;margin-left:0px;' id='divAlertaCorpo' class='classeAlertaCorpo'>");
-		document.write("</div>");
-		document.write("<button style='width:30%;height:20%;margin-left:20%;background:#454545;' onclick='alerta()' type='button' id='buttonAlertaConfirma' class='classeAlertaConfirma'>Confirma!</button>");
-		document.write("<button style='width:30%;height:20%;background:#f07070;' type='button' id='buttonAlertaCancela' class='classeAlertaCancela'>Cancela!</button>");
-		document.write("</div></div>");
-		if(document.getElementById("buttonAlertStart")){
-			document.getElementById("buttonAlertStart").innerHTML.style.display = "none";
-		}
-	}
 	
 	function formCalcParalelo(){
 		document.write("<div id='envio4' style='font-size:18;display:block;text-align:center;margin-top:8%'>");
