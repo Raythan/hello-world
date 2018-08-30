@@ -1,5 +1,4 @@
-// Multiplicação de matrizes
-// Lista de compradores e produtos
+
 /*
 struct student
 {
@@ -21,7 +20,7 @@ typedef struct student
   float dec;
   char vet[20];
 }
-
+typedef struct nomeDaSctruct equivalência;
 student variavel;
 
 quando estiver trabalhando com ponteiro o acesso aos elementos não é feito por . mas por ->
@@ -30,6 +29,15 @@ quando estiver trabalhando com ponteiro o acesso aos elementos não é feito por
 
 #include <stdlib.h>
 #include <stdio.h>
+
+struct iniTable
+{
+	char nomeComprador[100];
+	int qtdProdutos;
+	float valorProdutos;
+};
+
+ 
 
 void printVector(int n, int vet[]){
 	int i = 0;
@@ -56,6 +64,22 @@ void readVector(int nIns, int vetIns[]){
 	}
 }
 
+void iniOptionsPrint(){
+	printf("Please info what you want to do.\n");
+	char option1[] = ("1 - Increase elements on N position of a N size vector.\n"), // Operation for input elements
+	option2[] = ("2 - Decrease elements of N position of a N size vector.\n"), // Operation for remove elements
+	option3[] = ("3 - Get the result of 2 ordenated arrays.\n"),
+	option4[] = ("4 - Multiply matrix. >>>>>>>>> On Going <<<<<<<<<\n"),
+	option5[] = ("5 - Make a product list! >>>>>>>>> On Going <<<<<<<<<\n"),
+	optionFinal[] = ("0 or 6+ - For exit!\n"); // Query for exit script
+	printf(option1);
+	printf(option2);
+	printf(option3);
+	printf(option4);
+	printf(option5);
+	printf(optionFinal);
+}
+
 int main() {
 	//Add or remove numbers inside an array of integer
 	int decision = 0, // Decision for loop the architecture while the user wants
@@ -77,23 +101,18 @@ int main() {
 	vet4[n4], // Array used for solve mix 2 arrays
 	ind, // Decision that you choise for solve what index you want to add.
 	ind2 = 0; // Decision that you choise for solve what index you want to remove.
-	char autor[] = ("\n\nClosing software down!\nThis software have been produced and distribuited for\nRaythan Padovani Abreu Machado.");
+	char autor[] = ("\n\nClosing software down!\nThis software have been produced and distribuited for\nRaythan Padovani Abreu Machado.\nWe really appreciate the preference.");
+	typedef struct iniTable table[n];
 	{ 
 		while(decision==0){
 			int decision3 = 3; // Decision for avoid invalid input on rollback and decision
 			char rollback[] = ("Do you want to exit?\n(1) - Yes.\n(2) - No."), // Finalização do software
-			option1[] = ("1 - Increase elements on N position of a N size vector.\n"), // Operation for input elements
-			option2[] = ("2 - Decrease elements of N position of a N size vector.\n"), // Operation for remove elements
-			option3[] = ("0 or 5+ - For exit!\n"), // Query for exit script
-			option4[] = ("Do you want to use the same vector?\n(1) - Yes.\n(2) - No."), // Query for use the same vector
-			option5[] = ("3 - Get the result of 2 ordenated arrays.\n"),
-			option6[] = ("4 - Multiple matrix.\n");
+			optionVector[] = ("Do you want to use the same vector?\n(1) - Yes.\n(2) - No."); // Query for use the same vector
 			system("cls");
 			if(newVet==0){
 				printf("This software make 2 operations.\n");
 			}
-			printf("Please info what you want to do.\n");
-			printf(option1); printf(option2); printf(option5); printf(option6); printf(option3);
+			iniOptionsPrint();
 			scanf("%d", &d);
 			system("cls");
 			{
@@ -145,7 +164,7 @@ int main() {
 						scanf("%d", &decision);
 						if(decision==2){
 							decision = 0;
-							printf("\n%s\n", option4);
+							printf("\n%s\n", optionVector);
 							scanf("%d", &newVet);
 							decision3 = 1;
 							if(newVet==2){
@@ -176,7 +195,7 @@ int main() {
 					scanf("%d", &decision);
 					if(decision==2){
 						decision = 0;
-						printf("\n%s\n", option4);
+						printf("\n%s\n", optionVector);
 						scanf("%d", &newVet);
 					if(newVet==2){
 						newVet = 0; n = 0;
@@ -192,7 +211,7 @@ int main() {
 					scanf("%d", &decision);
 					if(decision==2){
 						decision = 0;
-						printf("\n%s\n", option4);
+						printf("\n%s\n", optionVector);
 						scanf("%d", &newVet);
 					if(newVet==2){
 						newVet = 0; n = 0;
@@ -202,29 +221,32 @@ int main() {
 						decision = 1;
 					}
 				}else if(d==3){
-					printf("\nInfo the vector size: \n");
+					printf("\nInfo the vector size: \n"); 
 					scanf("%d", &n2);
 					readVector(n2, vet2);
 					system("cls");
 					printf("\nInfo the vector2 size: \n");
 					scanf("%d", &n3);
-					readVector(n3, vet3);
+					readVector(n3, vet3); // Reading the two vectors sizes and pushing in
 					system("cls");
 					printVector(n2, vet2);
-					printVector(n3, vet3);
+					printVector(n3, vet3); // Printing the two vectors for UI  
 					n4 = n2 + n3; i = 0; i2 = 0; i3 = 0;
-					printf("N2: %d, N3: %d, N4: %d", n2, n3, n4);
-					printf("\nVector3: ");
+					printf("\n\n");
+					
 					while(i<n4){
-						if(vet2[i2]!=NULL){
+						if(vet2[i2]!=NULL&&i2<n2){
+							printf("vet2[i2:%d]: %d\n", i2, vet2[i2]);
 							vet4[i] = vet2[i2];
 							i2++; i++;
 						}
-						if(vet3[i3]!=NULL){
+						if(vet3[i3]!=NULL&&i3<n3){
+							printf("vet3[i3:%d]: %d\n", i3, vet3[i3]);
 							vet4[i] = vet3[i3];
 							i3++; i++;
-						}
-					} // REVER A LÓGICA
+						} // These two conditions verify if the matrix finish length, IF Yes stop input numbers
+					} // Work correctly =)
+					printf("\nVector3: ");
 					printVector(n4, vet4);
 					printf("\n");
 					system("pause"); 
