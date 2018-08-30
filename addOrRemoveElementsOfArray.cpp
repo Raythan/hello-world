@@ -9,6 +9,7 @@ struct student
 } variavel, variavel2;
 
 struct student variavel;
+struct student array[];
 
 variavel.num = 0;
 variavel = {0, 2.4, "nome"};
