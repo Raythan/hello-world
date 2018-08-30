@@ -110,12 +110,15 @@ Model é uma classe com nome 'Case Sensitive'
 ---------------------------------------------
 
 [HttpPost] <<<<<< Informa ao controler que vai receber a informação via Post
-        public ActionResult Lista() // Ainda faltam parâmetros para receber caso o usuário queira mudar os formulários
+        public ActionResult Lista(int PessoaId) // Ainda faltam parâmetros para receber caso o usuário queira mudar os formulários
         {
-            return View();
+            ViewData["PessoaId"] = PessoaId;
+            return View(); // Botão direito para criar a View com o nome da ActionResult dentro do controller
         }
-        
-<form action="Home/Lista" method="POST"> // Formulário criado no exemplo para ser sseguido acima Obs.: action="Controller/MétodoDoController
+------    
+<form action="Home/Lista" method="POST"> // Formulário criado no exemplo para ser seguido acima 
+Obs.: action="Controller/MétodoDoController
+
     <fieldset>
         <legend>Informações de Pessoas</legend>
         <p>
@@ -124,7 +127,16 @@ Model é uma classe com nome 'Case Sensitive'
         </p>
     </fieldset>
 </form>
+-------
+{
+      @View.Bag.Title = "Lista";
+}
+
+<p>PessoaId: @ViewData["PessoaId"] </p> // Sem ponto e vírgula
+
+OBS.:: Para fazer via método GET, basta mudar o method para GET e tirar o [HttpPost]
                   
+
 --------------- /// CONTINUAR DAQUI <<<<<<<<<<<<<<--------------
 Quando declarar parâmetros no C# nos métodos, especificar cada tipo de variável dentro dos parênteses
 ---------------
