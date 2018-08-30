@@ -12,6 +12,7 @@ struct student variavel;
 struct student array[];
 
 variavel.num = 0;
+array[i].num = 0;
 variavel = {0, 2.4, "nome"};
 -----------------------------------------------------------------
 typedef struct student
