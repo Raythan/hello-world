@@ -109,7 +109,10 @@ fieldset {
 	}
 	
 	function formSem1(){
-		document.getElementById("formsForSelect").innerHTML = "Funcionando Normalmente!";
+		document.getElementById("formsForSelect").innerHTML = "<div id='linhaLateral'></div>Funcionando Normalmente!";
+		var linhaLateral = document.getElementById("linhaLateral");
+		alert(linhaLateral);
+
 	}
 	function formSem2(){
 		document.getElementById("formsForSelect").innerHTML = "Funcionando Normalmente!";
