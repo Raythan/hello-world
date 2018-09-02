@@ -110,7 +110,7 @@ int main() {
 			optionVector[] = ("Do you want to use the same vector?\n(1) - Yes.\n(2) - No."); // Query for use the same vector
 			system("cls");
 			if(newVet==0){
-				printf("This software make 2 operations.\n");
+				printf("This software make some operations.\n");
 			}
 			iniOptionsPrint();
 			scanf("%d", &d);
