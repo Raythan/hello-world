@@ -25,12 +25,39 @@ student variavel;
 
 quando estiver trabalhando com ponteiro o acesso aos elementos não é feito por . mas por ->
 
+
+--------------------------------
+struct student, *prt_stud
+{	
+  int num;
+  float dec;
+  char vet[20];
+}
+>>>> ptr_stud = &student; // adiciona o endereço de memória da sctruct student
+(*ptr_stud).num = 40; // Atribui o valor 40 a num na struct student
+ptr_stud->num = 40; // Atribui o valor 40 a num na struct student
+
+LISTA ENLAÇADA -------------------------
+	struct node
+	{
+		int data;
+		struct node *next;
+	}
+	struct node *start; // >>>> nesse momento = NULL;
+	struct node *ptr; // >>>> ponteiro que vai percorrer a lista
+	ptr = start;
+	while(ptr != NULL)
+	{
+		printf("\t %d", ptr -> data);
+		ptr = ptr -> next;
+	}
+
 */
 
 #include <stdlib.h>
 #include <stdio.h>
 
-struct iniTable
+typedef struct iniTable
 {
 	char nomeComprador[100];
 	int qtdProdutos;
