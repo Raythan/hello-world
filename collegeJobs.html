@@ -52,7 +52,7 @@ fieldset {
 	tamanhoTitulo = 30; widthDivMiddleLeft = 5; heightDivMiddleLeft = 5;
 	function frontEnd(){
 		var top = `
-		<div id="titulo" style="text-align:center;font-size:200%;padding-top:2%;background:#F18767">
+		<div id="titulo" style="text-align:center;font-size:200%;padding-top:.5%;background:#F18767">
 			This is the summary of all my work in college since now. <!--input type="submit" onclick="styleTitulo()" value="Mudar"/-->
 		</div>
 		<div id="separator2" style="border:solid;margin:.5% auto .5% auto;border-radius:2px"></div>
@@ -80,7 +80,7 @@ fieldset {
 		</div>
 		
 		`, bottom = `
-			<div id="footer" style='width:100%;text-align:center;padding-bottom:3%;bottom:0;font-size:20px;position:fixed'>
+			<div id="footer" style='width:100%;text-align:center;padding-bottom:1%;bottom:0;font-size:20px;position:fixed'>
 				<div id="separator4" style="border:solid;margin:.5% auto .5% auto;border-radius:2px"></div>
 				<div style="width:100%">
 					This is a free code developed by:</br>
@@ -167,12 +167,20 @@ fieldset {
 			<fieldset><legend>Second semester exercises</legend>
 				<form>
 				<p>
-					Ana's teacher exercises. || >>> Second semester <<<</br></br>
-					<input class='formSelecao' type='submit' onclick='cppGitHubSecondSemester1()' value='Lista 3: Inciso 1!'/></br>
-					<input class='formSelecao' type='submit' onclick='list3_inciso2()' value='Lista 3: Inciso 2!'/></br>
-					<input class='formSelecao' type='submit' onclick='list3_inciso3()' value='Lista 3: Inciso 3!'/></br>
-					<input class='formSelecao' type='submit' onclick='list3_inciso4()' value='Lista 3: Inciso 4!'/></br>
-					<input class='formSelecao' type='submit' onclick='listMatriz_4incisos()' value='Lista Matrix: 4 Incisos!'/></br>
+					Ana's teacher exercises. || >>> Second semester <<<</br>	
+				<dl>
+					These buttons will take you to one of my pages on gitHub =)
+					<dt>
+						<input class='formSelecao' type='submit' onclick='cppGitHubSecondSemester1()' value='Lista 3: Inciso 1!'/></br>
+						<input class='formSelecao' type='submit' onclick='cppGitHubSecondSemester2()' value='Lista 3: Inciso 2!'/></br>
+						<input class='formSelecao' type='submit' onclick='cppGitHubSecondSemester3()' value='Lista 3: Inciso 3!'/></br>
+						<input class='formSelecao' type='submit' onclick='cppGitHubSecondSemester4()' value='Lista 3: Inciso 4!'/></br>
+						<input class='formSelecao' type='submit' onclick='cppGitHubSecondSemester5()' value='Lista Matrix: 4 Incisos!'/></br>
+					</dt></br>
+						<dd>
+							Basically this is some examples of exercises proposes in my college classroom, some beginners and others with intermediate difficulty!
+						</dd>
+				</dl>
 				</p><hr>
 				<p>
 					Marta's teacher exercises. || >>> Second semester <<<</br></br>
@@ -198,14 +206,14 @@ fieldset {
 		<fieldset><legend>Third semester exercises</legend>
 			<form>
 				<p>
-					Rodrigo Bonacin's teacher exercises. || >>> Third semestre <<<
+					Rodrigo Bonacin's teacher exercises. || >>> Third semester <<<
 				</p>
 				<p>
 					<input class='formSelecao' type='submit' onclick='listaTags()' value="List of tags for the first test! <<< Don't try to understand "/></br>
 					<input class='formSelecao' type='submit' onclick='edpHtml1()' value='First proposal exercises on HTML!'/>
 				</p><hr>
 				<p>
-					Luis Mariano's teacher exercises. || >>> Third semestre <<<
+					Luis Mariano's teacher exercises. || >>> Third semester <<<
 				</p>
 				<p>
 				<dl>
@@ -229,13 +237,7 @@ fieldset {
 		`
 		document.getElementById("divFormsForSelect").innerHTML = insImp;
 	}
-	function cppGitHubSecondSemester1(){
-		window.open("https://github.com/Raythan/cppWorkClass/blob/master/LICENSE.md/cppCollegeWork1");
-	}
-	function cppGitHubThirdSemester(){
-		window.open("https://github.com/Raythan/cppWorkClass/blob/master/cppCollegeWork1"); 
-		
-	}
+	
 	function formSem4(){
 		document.getElementById("divFormsForSelect").innerHTML = "This page is on going during the college!";
 	}
@@ -251,6 +253,31 @@ fieldset {
 	function formSem8(){
 		document.getElementById("divFormsForSelect").innerHTML = "This page is on going during the college!";
 	}
+	
+	// >>>>>>>>>> THESE ARE ANCHORAGE BUTTONS FUNCTIONS <<<<<<<<<<
+	
+	function cppGitHubSecondSemester1(){
+		window.open("https://github.com/Raythan/cppWorkClass/blob/master/inciso1.cpp");
+	}
+	function cppGitHubSecondSemester2(){
+		window.open("https://github.com/Raythan/cppWorkClass/blob/master/inciso2.cpp");
+	}
+	function cppGitHubSecondSemester3(){
+		window.open("https://github.com/Raythan/cppWorkClass/blob/master/inciso3.cpp");
+	}
+	function cppGitHubSecondSemester4(){
+		window.open("https://github.com/Raythan/cppWorkClass/blob/master/inciso4.cpp");
+	}
+	function cppGitHubSecondSemester5(){
+		window.open("https://github.com/Raythan/cppWorkClass/blob/master/exerciseListMatrix4Resolutions.cpp");
+	}
+	
+	
+	function cppGitHubThirdSemester(){
+		window.open("https://github.com/Raythan/cppWorkClass/blob/master/cppCollegeWork1"); 
+		
+	}
+	
 	
 	// >>>>>>>>>> STYLE ALTERATION FUNCTION <<<<<<<<<<
 	
@@ -638,16 +665,7 @@ fieldset {
 		}
 	}
 	
-	// Try to build an alert button
-	function mudarSelecao(){
-		x = document.getElementsByClassName("formSelecao");
-		i = 0;
-		for(i=0;i<14;i++){
-			//x[i].style.border = "solid";
-			x[i].style.boxShadow = "2px 2px 2px #ff0000";
-			x[i].style.borderRadius = "23px";
-		}
-	}
+	
 	
 	// Form that show what type of triangle is
 	function formCalcMatrizTriangulo(){
@@ -669,16 +687,16 @@ fieldset {
 			}
 			
 		}
-		console.log(matriz);
+		//console.log(matriz);
 		for(i=0;i<n;i++){
 			for(j=0;j<m;j++){
 				if(i > j && matriz[i][j] == 0){
 					checkInferior = true;
-					console.log("MatrizInferior[" + i + "][" + j +"]: (" + matriz[i][j] + ")" + checkInferior);
+					//console.log("MatrizInferior[" + i + "][" + j +"]: (" + matriz[i][j] + ")" + checkInferior);
 				}
 				if(i > j && matriz[i][j] != 0){
 					checkInferior = false;
-					console.log("MatrizInferior[" + i + "][" + j +"]: (" + matriz[i][j] + ")" + checkInferior);
+					//console.log("MatrizInferior[" + i + "][" + j +"]: (" + matriz[i][j] + ")" + checkInferior);
 					i = n;
 					j = m;
 				}
@@ -688,11 +706,11 @@ fieldset {
 			for(j=0;j<m;j++){
 				if(i < j && matriz[i][j] == 0){
 					checkSuperior = true;
-					console.log("MatrizSuperior[" + i + "][" + j +"]: (" + matriz[i][j] + ")" + checkSuperior);
+					//console.log("MatrizSuperior[" + i + "][" + j +"]: (" + matriz[i][j] + ")" + checkSuperior);
 				}
 				if(i < j && matriz[i][j] != 0){
 					checkSuperior = false;
-					console.log("MatrizSuperior[" + i + "][" + j +"]: (" + matriz[i][j] + ")" + checkSuperior);
+					//console.log("MatrizSuperior[" + i + "][" + j +"]: (" + matriz[i][j] + ")" + checkSuperior);
 					i = n;
 					j = m;
 				}
@@ -741,293 +759,15 @@ fieldset {
 			document.write("</tr>");	
 		}
 		document.write("</table>");
-		document.write("</br><input type='submit' value='Voltar!' onclick='location.reload()'/>");
+		document.write("</br><input type='submit' value='Voltar!' onclick='~/'/>");
 	}
 	
-	function list3_inciso1(){
-		document.write(formBack);
-		document.write("</br>#include <mo><</mo>stdlib.h<mo>></mo>");
-		document.write("</br>#include <mo><</mo>conio.h<mo>></mo>");
-		document.write("</br>#include <mo><</mo>stdio.h<mo>></mo>");
-		document.write("</br>");
-		document.write("</br>int main() {");
-		document.write("</br>int i = 0, // Contador");
-		document.write("</br>c, // Contador para checar se os números estão no array");
-		document.write("</br>n, // Quantidade de números que vão ser lidos, informados pelo usuário.");
-		document.write("</br>checkNum, // Número que vai ser verificado se está presente, e em que posição está presente no VETOR");
-		document.write("</br>soma, // soma dos números positivos encontrados no vetor");
-		document.write("</br>p = 0, // Indice que vai ser alterado no vetor");
-		document.write("</br>m, // Numero que vai ser inserido no índice indicado pelo usuário");
-		document.write("</br>vetor[100][100]; // Vetor que vai armazenar os valores dos números inteiros.");
-		document.write("</br>");
-		document.write("</br>// Inciso \"1. Ler N números inteiros e armazenar esses números em um vetor.\"");
-		document.write("</br>printf(\"Informe quantos numeros serao lidos (No MAXIMO 100): \"); // Informações para iniciar a quantidade de números que vão ser armazenados no vetor");
-		document.write("</br>scanf(\"%d\", &n);");
-		document.write("</br>printf(\"\n\");");
-		document.write("</br>// \"For\" que vai armazenar os valores no vetor.");
-		document.write("</br>for(;i<mo><</mo>n;i++){");
-		document.write("</br>printf(\"Digite um numero para ser armazenado em Vetor[i: %d]: \", i);");
-		document.write("</br>scanf(\"%d\", &vetor[0][i]);");
-		document.write("</br>}");
-		document.write("</br>printf(\"********** FIM DO INCISO 1 **********\n\n\n\");");
-		document.write("</br>// Inciso \"a. Imprimir os números armazenados no vetor.\"");
-		document.write("</br>for(i=0;i<mo><</mo>n;i++){");
-		document.write("</br>printf(\"O valor armazenado em Vetor[i: %d] e de: %d\n\", i, vetor[0][i]);");
-		document.write("</br>}");
-		document.write("</br>printf(\"********** FIM DO INCISO A **********\n\n\n\");");
-		document.write("</br>//Inciso \"b. Imprimir os números armazenados nas posições pares.\"");
-		document.write("</br>for(i=0;i<mo><</mo>n;i+=2){");
-		document.write("</br>printf(\"O valor armazenado nos indices pares do Vetor[i: %d] e de: %d\n\", i, vetor[0][i]);");
-		document.write("</br>}");
-		document.write("</br>printf(\"********** FIM DO INCISO B **********\n\n\n\");");
-		document.write("</br>//Inciso \"c. Imprimir os números pares armazenados no vetor.\"");
-		document.write("</br>for(i=0;i<mo><</mo>n;i++){");
-		document.write("</br>if(vetor[0][i] % 2 == 0){");
-		document.write("</br>printf(\"O numero no Vetor[i: %d]: %d e PAR\n\", i, vetor[0][i]);");
-		document.write("</br>}");
-		document.write("</br>}");
-		document.write("</br>printf(\"********** FIM DO INCISO C **********\n\n\n\");");
-		document.write("</br>// Inciso \"d. Ler um número e imprimir se o número está ou não armazenado no vetor.\"");
-		document.write("</br>printf(\"Insira um numero para consultar se esta presente no vetor: \");");
-		document.write("</br>scanf(\"%d\", &checkNum);");
-		document.write("</br>printf(\"\n\");");
-		document.write("</br>for(i=0,c=0;i<mo><</mo>n;i++){");
-		document.write("</br>if(vetor[0][i] == checkNum){");
-		document.write("</br>printf(\"Este numero esta presente no vetor.\n\");");
-		document.write("</br>i = n;");
-		document.write("</br>c++;");
-		document.write("</br>}");
-		document.write("</br>if(vetor[0][i] == sizeof(vetor[0][i]) && c == 0){");
-		document.write("</br>printf(\"O numero nao esta presente no Vetor.\n\");");
-		document.write("</br>}");
-		document.write("</br>}");
-		document.write("</br>printf(\"********** FIM DO INCISO D **********\n\n\n\");");
-		document.write("</br>//  Inciso \"e. Ler um número. Se o número está armazenado no vetor, imprimir as posições onde");
-		document.write("</br>//  foi achado (pode ter mais de uma ocorrência do número).\"");
-		document.write("</br>for(i=0,c=0;i<mo><</mo>n;i++){");
-		document.write("</br>if(vetor[0][i] == checkNum){");
-		document.write("</br>printf(\"O numero esta no Vetor[i: %d]\n\", i);");
-		document.write("</br>c++;");
-		document.write("</br>}");
-		document.write("</br>if(vetor[0][i] == sizeof(vetor[0][i]) && c == 0){");
-		document.write("</br>printf(\"O numero nao esta presente no Vetor.\n\");");
-		document.write("</br>}");
-		document.write("</br>}");
-		document.write("</br>printf(\"********** FIM DO INCISO E **********\n\n\n\");");
-		document.write("</br>// Inciso \"f. Somar todos os números positivos armazenados nos vetores.\"");
-		document.write("</br>for(i=0;i<mo><</mo>n;i++){");
-		document.write("</br>if(vetor[0][i] <mo>></mo> 0){");
-		document.write("</br>soma+=vetor[0][i];");
-		document.write("</br>}");
-		document.write("</br>}");
-		document.write("</br>printf(\"A soma dos numeros positivos do vetor e de: %d\n\n\", soma);");
-		document.write("</br>printf(\"********** FIM DO INCISO F **********\n\n\n\");");
-		document.write("</br>");
-		document.write("</br>/* Inciso \"g. Ler um número inteiro p e um número n. ");
-		document.write("</br>Armazenar o número n na componente p do vetor. ");
-		document.write("</br>Imprimir o vetor original e o modificado. ");
-		document.write("</br>Considerar erros no valor de p.\" */");
-		document.write("</br>");
-		document.write("</br>printf(\"Agora informe uma posicao que voce queira alterar no vetor: \");");
-		document.write("</br>scanf(\"%d\", &p); printf(\"\n\");");
-		document.write("</br>printf(\"Agora informe o numero que voce quer inserir nessa posicao: \");");
-		document.write("</br>scanf(\"%d\", &m); printf(\"\n\");");
-		document.write("</br>vetor[1][p] = m;");
-		document.write("</br>if(p <mo><</mo>= sizeof(vetor[0][i])){");
-		document.write("</br>for(i=0;i<mo><</mo>n;i++){");
-		document.write("</br>printf(\"O valor no Vetor[i: %d] = %d\n\", i, vetor[0][i]);");
-		document.write("</br>}");
-		document.write("</br>printf(\"\n\");");
-		document.write("</br>for(p=0;p<mo><</mo>n;p++){");
-		document.write("</br>printf(\"O valor no Vetor[i: %d] = %d\n\", p, vetor[1][p]);");
-		document.write("</br>}");
-		document.write("</br>}else{");
-		document.write("</br>printf(\"Voce digitou um numero de indice que nao esta no vetor!!!\n\n\");");
-		document.write("</br>}");
-		document.write("</br>printf(\"********** FIM DO INCISO G **********\n\n\n\");");
-		document.write("</br>");
-		document.write("</br>/*h. Criar um novo vetor que tem armazenado o valor absoluto dos valores armazenados no vetor. Imprimir os dois vetores.\"");
-		document.write("</br>Assim, por exemplo, se o vetor tem armazenados os valores \"-56 7.3 9 -45 -3.78 0 6\"");
-		document.write("</br>O novo vetor terá armazenados os valores \"56 7.3 9 45 3.78 0 6\"\"*/");
-		document.write("</br>");
-		document.write("</br>for(i=0;i<mo><</mo>n;i++){");
-		document.write("</br>if(vetor[0][i] <mo><</mo> 0){");
-		document.write("</br>vetor[2][i] = -1 * (vetor[0][i]);");
-		document.write("</br>}else{");
-		document.write("</br>vetor[2][i] = vetor[0][i];");
-		document.write("</br>}");
-		document.write("</br>printf(\"Vetor[i: %d]: (%d) <mo><</mo>-- Valor absoluto\n\", i, vetor[2][i]);");
-		document.write("</br>}");
-		document.write("</br>printf(\"********** FIM DO INCISO H **********\n\n\n\");");
-		document.write("</br>");
-		document.write("</br>/* i. Criar um novo vetor que tem armazenado os números negativos armazenados no");
-		document.write("</br>vetor. Imprimir os dois vetores.");
-		document.write("</br>Assim, por exemplo, com o vetor do inciso anterior, o novo terá armazenados os");
-		document.write("</br>valores: -56 -45 -3.78");
-		document.write("</br>Observar que o novo vetor não necessariamente tem a mesma quantidade de elementos!!!! */");
-		document.write("</br>");
-		document.write("</br>for(i=0,c=0;i<mo><</mo>n;i++){");
-		document.write("</br>if(vetor[0][i] <mo><</mo> 0){");
-		document.write("</br>vetor[2][i] = vetor[0][i];");
-		document.write("</br>printf(\"Elementos negativos no Vetor[i: %d]: %d\n\", c, vetor[2][i]);");
-		document.write("</br>c++;");
-		document.write("</br>}");
-		document.write("</br>}");
-		document.write("</br>if(c == 0){");
-		document.write("</br>printf(\"Nao existem numeros negativos para realizar o inciso I!!!\n\");");
-		document.write("</br>}");
-		document.write("</br>printf(\"********** FIM DO INCISO I **********\n\n\n\");");
-		document.write("</br>");
-		document.write("</br>return 0;");
-		document.write("</br>}");
-	}
 	
-	function list3_inciso2(){
-		document.write(formBack);
-		document.write("</br>/* 2. Ler 10 valores inteiros positivos. Armazenar esses elementos num vetor e fazer um histograma que");
-		document.write("</br>represente os valores armazenados.");
-		document.write("</br>Exemplo:");
-		document.write("</br>Elemento/indice Valor Histograma");
-		document.write("</br>0 19 *******************");
-		document.write("</br>1 3 ***");
-		document.write("</br>2 15 ***************");
-		document.write("</br>3 7 *******");
-		document.write("</br>4 11 ***********");
-		document.write("</br>5 9 *********");
-		document.write("</br>6 13 *************");
-		document.write("</br>7 5 *****");
-		document.write("</br>8 17 *****************");
-		document.write("</br>9 1 */");
-		document.write("</br>");
-		document.write("</br>#include <mo><</mo>stdlib.h<mo>></mo>");
-		document.write("</br>#include <mo><</mo>conio.h<mo>></mo>");
-		document.write("</br>#include <mo><</mo>stdio.h<mo>></mo>");
-		document.write("</br>");
-		document.write("</br>int main() {");
-		document.write("</br>int i,");
-		document.write("</br>c,");
-		document.write("</br>vetor[9];");
-		document.write("</br>for(i=0;i<mo><</mo>4;i++){");
-		document.write("</br>printf(\"Digite o valor para ser armazenado em Vetor[i: %d]: \", i);");
-		document.write("</br>scanf(\"%d\", &vetor[i]);");
-		document.write("</br>}");
-		document.write("</br>printf(\"\n\");");
-		document.write("</br>for(i=0;i<mo><</mo>4;i++){");
-		document.write("</br>printf(\"Vetor[i: %d]: %d --<mo>></mo> \", i, vetor[i]);");
-		document.write("</br>for(c=0;c<mo><</mo>vetor[i];c++){");
-		document.write("</br>printf(\"*\");");
-		document.write("</br>}");
-		document.write("</br>printf(\"\n\");");
-		document.write("</br>}");
-		document.write("</br>return 0;");
-	}
 	
-	function list3_inciso3(){
-		document.write(formBack);
-		document.write("</br>/* 3. Um vetor que tem armazenado em cada componente um digito de 0 a 9 pode ser considerado");
-		document.write("</br>como um número inteiro positivo, portanto faz sentido determinar se esse número armazenado no");
-		document.write("</br>vetor é ou não um palíndromo. Faça um programa que leia um vetor desse tipo e imprima uma");
-		document.write("</br>mensagem caso o vetor armazenado seja ou não seja um palíndromo.");
-		document.write("</br>Exemplo se o vetor tem armazenados os dígitos 2 3 9 5 9 3 2, deve ser informado que esse vetor tem");
-		document.write("</br>armazenado um palíndromo. */");
-		document.write("</br>");
-		document.write("</br>#include <mo><</mo>stdlib.h<mo>></mo>");
-		document.write("</br>#include <mo><</mo>conio.h<mo>></mo>");
-		document.write("</br>#include <mo><</mo>stdio.h<mo>></mo>");
-		document.write("</br>");
-		document.write("</br>int main() { ");
-		document.write("</br>int c = 0, // contador secundario");
-		document.write("</br>i, // contador inicial");
-		document.write("</br>check, // check para saber se é um palindromo ou nao");
-		document.write("</br>n = 2, // quantidade de numeros a serem contados");
-		document.write("</br>vetor[100][100]; // vetor utilizado nas iterações");
-		document.write("</br>while(n%2==0 && n<mo>></mo>0){");
-		document.write("</br>printf(\"\nInforme a quantidade de numeros NATURAIS IMPARES a serem armazenados \npara checarmos se e um palindromo (NO MAXIMO 100): \");");
-		document.write("</br>scanf(\"%d\", &n);");
-		document.write("</br>if(n%2!=0 && n<mo>></mo>0){");
-		document.write("</br>system(\"cls\");");
-		document.write("</br>for(i=0;i<mo><</mo>n;i++){");
-		document.write("</br>printf(\"Digite o numero inteiro que vai ser armazenado em: Vetor[i: %d]: \", i);");
-		document.write("</br>scanf(\"%d\", &vetor[0][i]);");
-		document.write("</br>}");
-		document.write("</br>i--;");
-		document.write("</br>while(c!=i){");
-		document.write("</br>if(vetor[0][c] == vetor[0][i]){");
-		document.write("</br>check = true;");
-		document.write("</br>}else{");
-		document.write("</br>c=i;");
-		document.write("</br>check = false;");
-		document.write("</br>break;");
-		document.write("</br>}");
-		document.write("</br>c++;");
-		document.write("</br>i--;");
-		document.write("</br>}");
-		document.write("</br>if(check){");
-		document.write("</br>system(\"cls\");");
-		document.write("</br>printf(\"\n\nO Vetor[]: \");");
-		document.write("</br>for(i=0;i<mo><</mo>n;i++){");
-		document.write("</br>printf(\"%d, \", vetor[0][i]);");
-		document.write("</br>}");
-		document.write("</br>printf(\"e um palindromo.\");");
-		document.write("</br>}else{");
-		document.write("</br>system(\"cls\");");
-		document.write("</br>printf(\"\n\nO vetor nao e um palindromo.\");");
-		document.write("</br>}");
-		document.write("</br>}else{");
-		document.write("</br>system(\"cls\");");
-		document.write("</br>printf(\"******************************************************\n\");");
-		document.write("</br>printf(\"*O numero deve ser NATURAL e IMPAR, TENTE NOVAMENTE!**\n\");");
-		document.write("</br>printf(\"******************************************************\n\");");
-		document.write("</br>}");
-		document.write("</br>}");
-		document.write("</br>return 0;");
-		document.write("</br>}");
-	}
 	
-	function list3_inciso4(){
-		document.write(formBack);
-		document.write("</br>#include <mo><<mo>stdlib.h<mo>><mo></br>");
-		document.write("#include <mo><<mo>conio.h<mo>><mo></br>");
-		document.write("#include <mo><<mo>stdio.h<mo>><mo></br>");
-		document.write("int main() {</br>");
-		document.write("char s[100]; // String que vai ser avaliada</br>");
-		document.write("int i, //Contador primario que vai contar a string até o fim</br>");
-		document.write("check = false, // Variável se checa verdadeiro ou falso palindromo</br>");
-		document.write("c = 2; // Contador secundário que vai comparar se o fim e o começo são iguais</br>");
-		document.write("printf('Digite uma palavra para verificarmos se e um palindromo: ');</br>");
-		document.write("scanf('\n%s', &s);</br>");
-		document.write("for(;c%2==0;c=c){</br>");
-		document.write("for(c=0;s[c]!='\0';c++){</br>");
-		document.write("}</br>");
-		document.write("if(c%2!=0){</br>");
-		document.write("c--;</br>");
-		document.write("for(i=0;i!=c;i++){</br>");
-		document.write("if(s[i]==s[c]){</br>");
-		document.write("check = true;</br>");
-		document.write("}else{</br>");
-		document.write("check = false;</br>");
-		document.write("break;</br>");
-		document.write("}</br>");
-		document.write("c--;</br>");
-		document.write("}</br>");
-		document.write("if(check){</br>");
-		document.write("printf('Palindromo.');</br>");
-		document.write("break;</br>");
-		document.write("}else{</br>");
-		document.write("printf('Nao palindromo.');</br>");
-		document.write("break;</br>");
-		document.write("}</br>");
-		document.write("}else{</br>");
-		document.write("system('cls');</br>");
-		document.write("printf('Voce precisa digitar um numero de caracteres impares \npara saber se e um palindromo\nDigite novamente!\n');</br>");
-		document.write("scanf('\n%s', &s);</br>");
-		document.write("}</br>");
-		document.write("}</br>");
-		document.write("return 0;</br>");
-		document.write("}</br>");
-		document.write("// 4. Ler um número inteiro e testar se esse número é um palíndromo. Dica: usar o exercício anterior.</br>");
-		document.write("// Para ler uma string usar: scanf(“\n%[^\n]”, s) onde s foi declarado como, por exemplo, char s[24].</br>");
-	}
+	
+	
+	
 		
 	function formCalcGrauN(){
 		document.write("<div id='divFormCalcGranNN'>");
@@ -1174,7 +914,7 @@ fieldset {
 			}
 		}
 		document.write("</br><div style='font-size:34;text-align:center;margin-top:5%;color:red'>Resultado: " + resultado.toFixed(2) + " ohms.</div></br>");
-		document.write("<div style='display:block;font-size:25;color:red;text-align:center;margin-top:5%'><form action='index.html'><input type='submit' autofocus onclick='location.reload()' value='Novamente?'/></form></div>");
+		document.write("<div style='display:block;font-size:25;color:red;text-align:center;margin-top:5%'><form action='index.html'><input type='submit' autofocus onclick='~/' value='Novamente?'/></form></div>");
 	}
 	
 	function formRaizNewton(){
@@ -1212,7 +952,7 @@ fieldset {
 		document.write("<div id='resultadoRaiz' style='display:block;font-size:25;color:red;text-align:center;margin-top:15%'>"); // style para formatação do formulário
 		document.write("A raíz aproximada de: " + valorDoUsuario + "</br>"); //Impressão para mostrar o valor que o usuário digitou
 		document.write("É aproximadamente: " + parseFloat(equacao[i-1].toFixed(aproximacao)) + "</br></br>"); // Impressão que informa ao usuário a raíz aproximada
-		document.write("<form action='index.html'><input type='submit' onclick='location.reload()' value='Novamente?'</form></div>"); // formulário que recarrega a página
+		document.write("<form action='index.html'><input type='submit' onclick='~/' value='Novamente?'</form></div>"); // formulário que recarrega a página
 		
 		if(document.getElementById("envio3") != null){ // condicional que apaga o formulário anterior
 			var ocultar = document.getElementById("envio3");
@@ -1275,7 +1015,7 @@ fieldset {
 				i--;
 				}
 			}
-			document.write("</div></br</br></br><div id='resultadoBinario' style='display:block;font-size:25;color:red;text-align:center;margin-top:5%'><form action='index.html'><input type='submit' onclick='location.reload()' value='Novamente?'</form></div>");
+			document.write("</div></br</br></br><div id='resultadoBinario' style='display:block;font-size:25;color:red;text-align:center;margin-top:5%'><form action='index.html'><input type='submit' onclick='~/' value='Novamente?'</form></div>");
 		}
 		else if (marcador >= 0){	
 		for (checkPotencia = 1; checkPotencia <= marcador; checkPotencia = checkPotencia + checkPotencia) {
@@ -1321,7 +1061,7 @@ fieldset {
 			i--;
 			}
 		}
-		document.write("</div></br</br></br><div id='resultadoBinario' style='display:block;font-size:25;color:red;text-align:center;margin-top:5%'><form action='index.html'><input type='submit' onclick='location.reload()' value='Novamente?'</form></div>");
+		document.write("</div></br</br></br><div id='resultadoBinario' style='display:block;font-size:25;color:red;text-align:center;margin-top:5%'><form action='index.html'><input type='submit' onclick='~/' value='Novamente?'</form></div>");
 		}
 		var ocultar2 = document.getElementById("envio2");
 		console.log(ocultar2);
@@ -1356,7 +1096,7 @@ fieldset {
 					contador1--;
 				}
 				document.write("<div style='font-size:34;text-align:center;margin-top:5%'>A representação inteira do binário: " + numero + "</br></br>É: -" + resultado);
-				document.write("</div></br</br></br><div style='font-size:25;color:red;text-align:center;margin-top:5%'><form action='index.html'><input type='submit' onclick='location.reload()' value='Novamente?'</form></div>");
+				document.write("</div></br</br></br><div style='font-size:25;color:red;text-align:center;margin-top:5%'><form action='index.html'><input type='submit' onclick='~/' value='Novamente?'</form></div>");
 			}
 		if (numero >= 0){
 			while (contador1 >= 0){
@@ -1374,7 +1114,7 @@ fieldset {
 				contador1--;
 			}
 			document.write("<div style='font-size:34;text-align:center;margin-top:5%'>A representação inteira do binário: " + numero + "</br></br>É: " + resultado);
-			document.write("</div></br</br></br><div style='font-size:25;color:red;text-align:center;margin-top:5%'><form action='index.html'><input type='submit' onclick='location.reload()' value='Novamente?'</form></div>");
+			document.write("</div></br</br></br><div style='font-size:25;color:red;text-align:center;margin-top:5%'><form action='index.html'><input type='submit' onclick='~/' value='Novamente?'</form></div>");
 			var ocultar2 = document.getElementById("envio2");
 			console.log(ocultar2);
 			if (ocultar2.style.display == 'block'){
@@ -1382,25 +1122,7 @@ fieldset {
 			}
 		}
 		
-		/*#######################################################
-		#  				SCRIPTS PARA EXECUÇÃO					#		
-		#for (i=0; i<vetor.length; i++) {						#
-		#document.write(vetor[i] + "<BR>");						#
-		#}														#
-		#														#
-		# vetor.join(", ")										#
-		#	document.write(maze.toString());					#
-		#	Math.pow(4, 3); // Faz 4 elevado a 3				#
-		#	var test = document.getElementById("numero").value;	#
-		#	maze[0][0] = "Ola";									#
-		#	maze[linha][coluna] = "Ola";						#
-		#	document.write(maze.length);						#
-		#  var arredondado = parseFloat(conta.toFixed(2));		# 	
-		#########################################################*/
 	}
-	
-	
-	
 	
 	function exercicioMariano1(){
 		var atividade1 = [`
