@@ -135,7 +135,19 @@ Obs.: action="Controller/MétodoDoController
 <p>PessoaId: @ViewData["PessoaId"] </p> // Sem ponto e vírgula
 
 OBS.:: Para fazer via método GET, basta mudar o method para GET e tirar o [HttpPost]
-                  
+-------------------------------------------------------------
+
+Passando multiplos parâmetros usando (FormCollection variávelQueVaiSerParâmetro)
+                                     {
+                                        ViewData["nomeQueVaiPassarParaAView"] = variávelParâmetro["nomeNoFormulário"];
+                                        return View;
+                                     }
+ Passando múltiplos parâmetros usando (Classe-Model variávelQueVaiSerParâmetro) <<<<<<<<<<<<<< MELHOR MANEIRA
+                                      {
+                                        ViewData["nomeQueVaiPassarParaAView"] = variávelParâmetro.atributoNaClasse;  
+                                        return View;     
+                                     }     
+-------------------------------------------------------------
 
 --------------- /// CONTINUAR DAQUI <<<<<<<<<<<<<<--------------
 Quando declarar parâmetros no C# nos métodos, especificar cada tipo de variável dentro dos parênteses
