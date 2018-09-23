@@ -5,26 +5,49 @@
 <title>College Jobs</title>
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <style type='text/css'>
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+	@import url('https://fonts.googleapis.com/css?family=Roboto');
 
-html, body {
-	height:100%;
-	font-family: 'Roboto', sans-serif;
-}
-fieldset {
-	width:60%;
-	border-radius: 6px;
-}
-.formSelecao {
-	opacity: 80%;
-	box-shadow: 2px 2px 2px #0f0f0f;
-	border-radius: 23px;
-	padding: .5%;
-}
-#titulo {
-	width:30%;
-	height:8%;
-}
+	html, body {
+		height:100%;
+		font-family: 'Roboto', sans-serif;
+	}
+	fieldset {
+		width:60%;
+		border-radius: 6px;
+	}
+	.formSelecao {
+		opacity: 80%;
+		box-shadow: 2px 2px 2px #0f0f0f;
+		border-radius: 23px;
+		padding: .5%;
+	}
+	#titulo {
+		width:30%;
+		height:8%;
+	}
+
+	.linha{
+		text-decoration:underline;
+		color:#fff;
+		font-size:25px;
+	}
+	table{
+		text-align:center;
+		font-size:40px;
+		font-weight:bold;
+		border:2px solid;
+		padding:2px;
+	}
+	td{
+		width:150px;
+		border:3px solid;
+		border-color:grey;
+	}
+	th{
+		width:150px;
+		border: 3px solid;
+		border-color:grey;
+	}
 </style>
 <script type="text/javascript">
 	var i, estados = ["Acre","Alagoas","Amapá","Amazonas","Bahia","Ceará","Distrito Federal","Espírito Santo","Goiás","Maranhão","Mato Grosso","Mato Grosso do Sul","Minas Gerais","Pará","Paraíba","Paraná","Pernambuco","Piauí","Rio de Janeiro","Rio Grande do Norte","Rio Grande do Sul","Rondônia","Roraima","Santa Catarina","São Paulo","Sergipe","Tocantins"];
@@ -206,7 +229,8 @@ fieldset {
 				</p>
 				<p>
 					<input class='formSelecao' type='submit' onclick='listaTags()' value="List of tags for the first test! <<< Don't try to understand "/></br>
-					<input class='formSelecao' type='submit' onclick='edpHtml1()' value='First proposal exercises on HTML!'/>
+					<input class='formSelecao' type='submit' onclick='edpHtml1()' value='First proposal exercises on HTML!'/></br>
+					<input class='formSelecao' type='submit' onclick='edpHtml2()' value='Second proposal exercises on HTML!'/>
 				</p><hr>
 				<p>
 					Luis Mariano's teacher exercises. || >>> Third semester <<<</br></br>
@@ -440,14 +464,12 @@ fieldset {
 		`];
 		
 		const impressao = {
-			parte1: parte1,
-			first: formBack2
+			parte1: parte1
 		}
 		const markup = `
 			${impressao.parte1}
-			${impressao.first}
 		`;
-		document.body.innerHTML = markup;
+		document.getElementById("divFormsForSelect").innerHTML = markup;
 		var selection = document.getElementById("conf3");
 		for(i=26;i>=0;i--){
 			option = document.createElement("option");
@@ -455,6 +477,90 @@ fieldset {
 			selection.add(option, selection[0]);
 		}
 	}
+	
+	function edpHtml2(){
+		var parte1 = `
+			<table>
+				<tr>
+					<th>Colors</th>
+					<th style="background:red">Red</th>
+					<th style="background:green">Green</th>
+					<th style="background:blue">Blue</th>
+				</tr>
+				<tr>
+					<td style="background:red">Red</td>
+					<td id="1" style="background:red" class="linha" onmouseover="insere()" onmouseout="remove()"></td>
+					<td id="2" style="background:yellow" class="linha" onmouseover="insere2()" onmouseout="remove()"></td>
+					<td id="3" style="background:magenta" class="linha" onmouseover="insere3()" onmouseout="remove()"></td>
+				</tr>
+				<tr>
+					<td style="font-weight:bold;background:green">Green</td>
+					<td id="4" style="background:yellow" class="linha" onmouseover="insere4()" onmouseout="remove()"></td>
+					<td id="5" style="background:green" class="linha" onmouseover="insere5()" onmouseout="remove()"></td>
+					<td id="6" style="background:cyan" class="linha" onmouseover="insere6()" onmouseout="remove()"></td>
+				</tr>
+				<tr>
+					<td style="font-weight:bold;background:blue">Blue</td>
+					<td id="7" style="background:magenta" class="linha" onmouseover="insere7()" onmouseout="remove()"></td>
+					<td id="8" style="background:cyan" class="linha" onmouseover="insere8()" onmouseout="remove()"></td>
+					<td id="9" style="background:blue" class="linha" onmouseover="insere9()" onmouseout="remove()"></td>
+				</tr>
+			</table>
+		`;
+		
+		const impressao = {
+			parte1: parte1
+		}
+		const markup = `
+			${impressao.parte1}
+		`;
+		document.getElementById("divFormsForSelect").innerHTML = markup;
+	}
+	
+	function insere(){
+		document.getElementById("1").innerHTML = "Red";
+	}
+	function insere2(){
+		document.getElementById("2").innerHTML = "Yellow";
+	}
+	function insere3(){
+		document.getElementById("3").innerHTML = "Magenta";
+	}
+	function insere4(){
+		document.getElementById("4").innerHTML = "Yellow";
+	}
+	function insere5(){
+		document.getElementById("5").innerHTML = "Green";
+	}
+	function insere6(){
+		document.getElementById("6").innerHTML = "Cyan";
+	}
+	function insere7(){
+		document.getElementById("7").innerHTML = "Magenta";
+	}
+	function insere8(){
+		document.getElementById("8").innerHTML = "Cyan";
+	}
+	function insere9(){
+		document.getElementById("9").innerHTML = "Blue";
+	}
+	function remove(){
+		document.getElementById("1").innerHTML = "";
+		document.getElementById("2").innerHTML = "";
+		document.getElementById("3").innerHTML = "";
+		document.getElementById("4").innerHTML = "";
+		document.getElementById("5").innerHTML = "";
+		document.getElementById("6").innerHTML = "";
+		document.getElementById("7").innerHTML = "";
+		document.getElementById("8").innerHTML = "";
+		document.getElementById("9").innerHTML = "";
+	}
+	
+	
+	
+	
+	
+	
 	
 	
 	
