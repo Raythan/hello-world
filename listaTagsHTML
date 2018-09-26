@@ -1,0 +1,90 @@
+<strong>Negrito - HTML5!</strong></br>
+		<em>Itálico - HTML5!</em></br>
+		<b>Negrito.</b></br>
+		<i>Itálico.</i></br>
+		<p>Parágrafo.</p></br>
+		<blockquote>Trecho de indicação de outros links.</blockquote></br>
+		<cite>Citações e lista de definição.</cite></br>
+		<ins>Algo que eu inseri</ins></br>
+		<address>Detalhes do autor</address></br>
+		<del>Algo que foi apagado</del></br>
+		<s>Não é mais relevante</s></br>
+		<sup>Sobescrito</sup></br>
+		<sub>Subscrito</sub></br>
+		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp // Espaços em branco</br>
+		<ol>Lista ordenada</ol></br>
+		<li>Itens de lista</li></br>
+		<ul>Lista não ordenada</ul></br>
+			<dl>
+				Lista de termos.
+				<dt>
+					Termo.	
+				</dt>
+					<dd>
+						Definição do termo.
+					</dd>
+			</dl></br>
+		<a href="arquivo.html">Cria Hyperlink para aquivos no mesmo diretório.	</a></br>
+		<a href="diretorio/arquivo.html">Cria Hyperlink para arquivo em algum diretório</a></br>
+		<a href="../arquivo.html">Cria Hyperlink para arquivo em algum diretório superior</a></br>
+		<a href="mailto:raythan100@yahoo.com.br">Email para mim mesmo!</a><br>
+		<a href="http://www.google.com.br" target="_blank">Abre link em nova aba</a></br>
+		-----------------------------------------------------
+		<h1 id="top">Link interno</h1>
+		<p><a href="#top">Link para o topo</a></p>
+		-----------------------------------------------------
+		<a href="endereço#idDoQueVocêQuerlink"></a><br />
+		<!--img src="LocalDoArquivo" alt="DescriçãoParaQuemNãoLê" title="Título" width="80" height="60" align="left;right;"/-->
+		<!-- ATENÇÃO AOS ALIGNS, WIDTH E HEIGHT -->
+		<figcaption>Legenda da figura</figcaption><br />
+		<table>Definir uma tabela</br>
+			<td>Colunas</td></br>
+			<tr>Linhas</tr></br>
+			<th scope="col">Nome da linha</th></br>
+
+			<td colspan="2">Mesclar 2 células</td>
+		</table></br>
+		<thead>Cabeçalho da tabela</thead>
+		<tbody>Corpo da tabela</tbody>
+		<tfoot>Rodapé da tabela</tfoot>
+		// Atributos
+		id == identificador unico
+		marcação <span class="vermelho"> identificador de trecho dentro de uma linha - Div interno </span>
+		<iframe> páginas dentro das páginas </iframe>
+
+		<meta name="description" content="Minha pagina com meta dados"/> // Descrição da página
+		<meta name="keywords" content="metadados HTML"/> // Buscadores ignoram keywords
+		<meta name="robots" content="nofollow"/> // Não deixa o google indexar as páginas na busca
+		<meta http-equiv="author"/>
+		<meta http-equiv=""
+
+		//Obs.: utilizar arquivos CSS em páginas diferentes
+    
+    Folhas de estilos em cascatas - CSS
+    <link href="css/exemplo1.css" type="text/css" rel="stylesheet"/>
+    <style>
+      --> *{} // Seletor universal
+      p{ // p representa um seletor
+        border: 1px solid red; // border representa um atributo, valores
+      }
+      /* unvisited link */
+      a:link {
+          color: green;
+      }
+
+      /* visited link */
+      a:visited {
+          color: green;
+      }
+
+      /* mouse over link */
+      a:hover {
+          color: red;
+      }
+
+      /* selected link */
+      a:active {
+          color: yellow;
+      }
+    </<style>
+    
