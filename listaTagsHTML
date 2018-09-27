@@ -67,7 +67,20 @@
       p{ // p representa um seletor
         border: 1px solid red; // border representa um atributo, valores
       }
-      /* unvisited link */
+      
+      --> h2>i {color:red} // Herança, itálico dentro de h2 recebe cor vermelho
+      --> #id --> .class
+      --> li a {color: green;} // Seletor descendente, diretamente ou indiretamente do tipo 1, todos os a dentro de li
+	  --> h1 + p {color:red;} // Seletor adjacente, atribui ao tags que estiverem posteriormente "irmãos(ãs)"
+	  --> h1 ~ p {color:red;} // Seletor adjacente, atribui ao tags que estiverem posteriormente e anteriormente
+	  // Herança é sempre a última que estiver definido ou mais específica
+	  // Elementos internos herdam propriedade dos mais externos
+    </<style>
+    
+	
+	
+	--------------------------------- Tipos de eventos CSS ---------------------------------
+	/* unvisited link */
       a:link {
           color: green;
       }
@@ -86,5 +99,4 @@
       a:active {
           color: yellow;
       }
-    </<style>
-    
+	  -------------------------------------------------------------------------------------
