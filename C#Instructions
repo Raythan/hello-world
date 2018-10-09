@@ -1,8 +1,7 @@
-@Html.ActionLink("Nome que vai aparecer na pagina", "Nome do método", "Pasta onde o método está salvo")
 --------------
+Model - pega dados do banco e manda pro controller
 View - Tudo que é exibido na página
 Controller - Pede e envia acessos para o Model
-Model - pega dados do banco e manda pro controller
 ---------------
 App_Data = Carrega dados do banco de dados
 App_Start = Arquivos de configuração que geram scripts, e arquivo de filtros
@@ -39,8 +38,50 @@ Métodos do tipo (public actionResult() { retornam uma "View" } )
 As views por padrão, herdam o template que está na pasta Shared _Layouts.cshtml
 --------------- 
  ---->>> Link Helper <<<----
- @Html.ActionLink("NomeDoLink", "Objeto-Método-ActionQueVaiExecutar", "NomeDoController - NomeDaPastaController");
- @Html.ActionLink("Página Inicial", "Index", "Home");
+ @Html.ActionLink("NomeDoLink", "Objeto-Método-ActionQueVaiExecutar", "NomeDoController - NomeDaPastaController")
+ @Html.ActionLink("Página Inicial", "Index", "Home")
+ @Html.LabelFor(x=>x.NomeDoAtributoNaClasse) // Automaticamente cria o nome das labels
+ @Html.EditFor(x=>x.ValorDoAtributoNaClasse) // Automaticamente cria os inputs textos
+ @Html.TextAreaFor(x=>x.ValorDoAtributoNaClasse) // Automaticamente cria um textArea
+ @using(Html.BeginForm("Lista", "Home", FormMethod.Post)) {} // Cria o formulário ("Direcionamento", "Controller", Método)
+ @Html.ValidationSummary(true) // Valida informações de envio para o formulário
+      @section Scripts{
+        @Scripts.Render("~/budles/jqueryval");
+      } // Script de validação de formulário que precisa ser executado no fim da página ou no começo, já vem o pacote quando cria o projeto, precisa ser colocado em todas as páginas que eu quiser validar
+@Html.DisplayNameFor(x=>x.ValorDoAtributoNaClasse) //
+@Html.DisplayFor(x=>x.ValorDoAtributoNaClasse) //
+
+
+--- Validações: Tipos
+if(string.IsNullOrEmpty(usuario.Nome)){ // Verifica por jQuery se o formulário está vazio...
+    ModelState.AddModelError("Chave", "Mensagem De ERRO"); // Chave é o campo específico que vai retornar o erro...
+}
+ if(usuario.ConfirmarSenha != usuario.senha)
+{
+    ModelState.AddModelError("", "As senhas estão diferentes"); // Chave vazia retornar erro na cabeça do form
+}
+
+    Validação utilizada dentro da própria classe
+    using System.ComponentModel.DataAnnotations; // biblioteca
+    [Required(ErrorMessage = "O nome é obrigatório!")] // No exemplo, ele faz com que o atributo da parte de baixo seja obrigatório
+    [StringLength(50, MinimumLength = 5, ErrorMessage = "Esreva uma informação de 5 a 50 caracteres!")] // Validação proposta
+    [Range(18, 70, ErrorMessage = "A idade deve estar entre 18 e 70 anos")]
+    [RegularExpression(@"[a-zA-Z]{5,15}", ErrorMessage = "Somente letras e números de 5-15 caracteres")] // Validação Caracteres
+    [RegularExpression(@"^\w*(\.\w*)?@\w*\.[a-z]+(\.[a-z]+)?$", ErrorMessage = "Digite um email válido")] // Validação de EMAIL
+    [System.ComponentModel.DataAnnotations.Compare("Senha", ErrorMessage = "As senhas não estão iguais")] // Validação de senha
+    using System.Web.Mvc; // para trabalhar o validador Remote
+    [Remote("NomeDaFuncao", "NomeDoControler", ErrorMessage = "Mensagem de erro")] // Validação por funções, métodos
+    
+    public ActionResult LoginUnico(string login) // Banco de dados fictício
+        {
+            var dbExemplo = new Collection<string> // Array do tipo Collection
+            {
+                "Hugo",
+                "Freitas",
+                "Paula"
+            };
+            return Json(dbExemplo.All(x => x.ToLower() != login.ToLower()), JsonRequestBehavior.AllowGet); // Função json que vai comparar o dado enviado pelo usuário em minúsculos e os dados no banco em minúsculos se retornar falso ele permite o Get Valor
+        }
 ---------------
 
 
@@ -142,11 +183,20 @@ Passando multiplos parâmetros usando (FormCollection variávelQueVaiSerParâmet
                                         ViewData["nomeQueVaiPassarParaAView"] = variávelParâmetro["nomeNoFormulário"];
                                         return View;
                                      }
+-----------------------                                  
  Passando múltiplos parâmetros usando (Classe-Model variávelQueVaiSerParâmetro) <<<<<<<<<<<<<< MELHOR MANEIRA
                                       {
                                         ViewData["nomeQueVaiPassarParaAView"] = variávelParâmetro.atributoNaClasse;  
                                         return View;     
-                                     }     
+                                     }  
+-----------------------                               
+ Passando múltiplos parâmetros usando return View ("NomeDaClasse") <<<< Maneira ainda melhor
+                                    (Classe-Model nomeVariávelQueVaiSerParâmetro){
+                                          return View(nomeClasse);
+                                    }
+Obs.: Dentro da execução HomeController precisei associar o @Introducao.Models.Classe para poder executar.
+      Então dentro da página com os formulários que faz a chamada a classe, eu preciso fazer uma referência
+      ao Model que eu preciso trabalhar, no exemplo: @Model Introducao.Models.Pessoa
 -------------------------------------------------------------
 
 --------------- /// CONTINUAR DAQUI <<<<<<<<<<<<<<--------------
