@@ -197,7 +197,26 @@ Passando multiplos parâmetros usando (FormCollection variávelQueVaiSerParâmet
 Obs.: Dentro da execução HomeController precisei associar o @Introducao.Models.Classe para poder executar.
       Então dentro da página com os formulários que faz a chamada a classe, eu preciso fazer uma referência
       ao Model que eu preciso trabalhar, no exemplo: @Model Introducao.Models.Pessoa
--------------------------------------------------------------
+   
+public IEnumerable<Noticia> TodasAsNoticias() // Array da classe<Noticia> guarda informações da classe noticia  
+
+
+private readonly IEnumerable<Noticia> todasAsNoticias; // todasAsNoticias é a variável do tipo IEnumerable<Noticia> herda da classe Noticia
+
+        public HomeController() // CONSTRUTOOOOR
+        {
+            todasAsNoticias = new Noticia().TodasAsNoticias().OrderByDescending(x => x.Data); // recebe da classe Noticia, todas as noticias que estiverem na estrutura por ordem decrescente
+        }
+        public ActionResult Index()
+        {
+            var ultimasNoticias = todasAsNoticias.Take(3); // Vai atribuir do método Take, as 3 últimas noticias de todas a estrutura
+            var todasAsCategorias = todasAsNoticias.Select(x => x.Categoria).Distinct.ToList; // Vai atribuir pelo método Select todas as categorias sem repetir e vai listar todas.
+            ViewBag.Categorias = todasAsCategorias; // Vai receber todas as categorias
+            return View(ultimasNoticias); // Vai retornar uma View tipada
+        }
+---------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------- ROTAS -------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------
 
 --------------- /// CONTINUAR DAQUI <<<<<<<<<<<<<<--------------
 Quando declarar parâmetros no C# nos métodos, especificar cada tipo de variável dentro dos parênteses
@@ -207,3 +226,4 @@ Obs.: Sempre que um método receber informações de formulários de outra pági
 -------------
 Obs.: <a href="~/">Voltar 1 nível</a>
 -------------
+Obs.: Se eu criar um método dentro da classe com o próprio nome da classe, é um construtor <<--
