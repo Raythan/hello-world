@@ -64,37 +64,43 @@ marcação <span class="vermelho"> identificador de trecho dentro de uma linha -
 -------------------------------------------------------------------------------------------------------
 <link href="css/exemplo1.css" type="text/css" rel="stylesheet"/>
 <style>
---> *{} // Seletor universal
-p{ // p representa um seletor
-border: 1px solid red; // border representa um atributo, valores
-}
+	--> *{} // Seletor universal
+	p{ // p representa um seletor
+	border: 1px solid red; // border representa um atributo, valores
+	}
 
---> h2>i {color:red} // Herança, itálico dentro de h2 recebe cor vermelho
---> #id --> .class
---> li a {color: green;} // Seletor descendente, diretamente ou indiretamente do tipo 1, todos os a dentro de li
---> h1 + p {color:red;} // Seletor adjacente, atribui ao tags que estiverem posteriormente "irmãos(ãs)"
---> h1 ~ p {color:red;} // Seletor adjacente, atribui ao tags que estiverem posteriormente e anteriormente
-// Herança é sempre a última que estiver definido ou mais específica
-// Elementos internos herdam propriedade dos mais externos
+	--> h2>i {color:red} // Herança, itálico dentro de h2 recebe cor vermelho
+	--> #id --> .class
+	--> li a {color: green;} // Seletor descendente, diretamente ou indiretamente do tipo 1, todos os a dentro de li
+	--> h1 + p {color:red;} // Seletor adjacente, atribui ao tags que estiverem posteriormente "irmãos(ãs)"
+	--> h1 ~ p {color:red;} // Seletor adjacente, atribui ao tags que estiverem posteriormente e anteriormente
+	// Herança é sempre a última que estiver definido ou mais específica
+	// Elementos internos herdam propriedade dos mais externos
 
-min-height: 100px;
-max-height: 300px;
-min-width: 100px;
-max-width: 300px;
-overflow: hidden; // esconde conteúdo que ultrapassar as divs
-overflow: scroll; // coloca barra de rolagem para mostrar conteúdo que ultrapassar as divs
-border-width: 2px 4px 8px 16px;
-border-color: red; // Exemplo 1 de cor
-border-style: solid;
-border-style: dotted;
-border-style: dashed;
-border-style: double;
-border-style: groove;
-border-style: ridge;
-border-style: inset;
-border-style: outset;
-border-style: none;
-border-color: #bbbbaa #111111 #ee3e80 #0088dd; // Exemplo 2 de cor
+	min-height: 100px;
+	max-height: 300px;
+	min-width: 100px;
+	max-width: 300px;
+	overflow: hidden; // esconde conteúdo que ultrapassar as divs
+	overflow: scroll; // coloca barra de rolagem para mostrar conteúdo que ultrapassar as divs
+	border-width: 2px 4px 8px 16px;
+	border-color: red; // Exemplo 1 de cor
+	border-style: solid; // Lisa
+	border-style: dotted; // Pontilhada
+	border-style: dashed; // Pontilhada mais larga
+	border-style: double; // Dupla
+	border-style: groove; // tipo 3D
+	border-style: ridge; // 3D Arredondada
+	border-style: inset; // botao clicado
+	border-style: outset; // botao para clicar
+	border-style: none; // sem borda
+	border-color: #bbbbaa #111111 #ee3e80 #0088dd; // Exemplo 2 de cor
+	border: 3px dotted #0088dd;
+	padding: 10px; // espaçamento interno
+	margin: 10px; // espaçamento externo
+	visibility: hidden; // mostra a visibilidade visible, hidden, inherit, collapse
+	border-image: url{""} 30 30 round, stretch, repeat // IMPORTANTE para fazer bordas de divs...
+					URL		TAMANHO		TIPO DA SEPARAÇÃO
 </<style>
 
 -------------------------------------------------------------------------------------------------------
