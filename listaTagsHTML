@@ -1,102 +1,122 @@
 <strong>Negrito - HTML5!</strong></br>
-		<em>Itálico - HTML5!</em></br>
-		<b>Negrito.</b></br>
-		<i>Itálico.</i></br>
-		<p>Parágrafo.</p></br>
-		<blockquote>Trecho de indicação de outros links.</blockquote></br>
-		<cite>Citações e lista de definição.</cite></br>
-		<ins>Algo que eu inseri</ins></br>
-		<address>Detalhes do autor</address></br>
-		<del>Algo que foi apagado</del></br>
-		<s>Não é mais relevante</s></br>
-		<sup>Sobescrito</sup></br>
-		<sub>Subscrito</sub></br>
-		&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp // Espaços em branco</br>
-		<ol>Lista ordenada</ol></br>
-		<li>Itens de lista</li></br>
-		<ul>Lista não ordenada</ul></br>
-			<dl>
-				Lista de termos.
-				<dt>
-					Termo.	
-				</dt>
-					<dd>
-						Definição do termo.
-					</dd>
-			</dl></br>
-		<a href="arquivo.html">Cria Hyperlink para aquivos no mesmo diretório.	</a></br>
-		<a href="diretorio/arquivo.html">Cria Hyperlink para arquivo em algum diretório</a></br>
-		<a href="../arquivo.html">Cria Hyperlink para arquivo em algum diretório superior</a></br>
-		<a href="mailto:raythan100@yahoo.com.br">Email para mim mesmo!</a><br>
-		<a href="http://www.google.com.br" target="_blank">Abre link em nova aba</a></br>
-		-----------------------------------------------------
-		<h1 id="top">Link interno</h1>
-		<p><a href="#top">Link para o topo</a></p>
-		-----------------------------------------------------
-		<a href="endereço#idDoQueVocêQuerlink"></a><br />
-		<!--img src="LocalDoArquivo" alt="DescriçãoParaQuemNãoLê" title="Título" width="80" height="60" align="left;right;"/-->
-		<!-- ATENÇÃO AOS ALIGNS, WIDTH E HEIGHT -->
-		<figcaption>Legenda da figura</figcaption><br />
-		<table>Definir uma tabela</br>
-			<td>Colunas</td></br>
-			<tr>Linhas</tr></br>
-			<th scope="col">Nome da linha</th></br>
+<em>Itálico - HTML5!</em></br>
+<b>Negrito.</b></br>
+<i>Itálico.</i></br>
+<p>Parágrafo.</p></br>
+<blockquote>Trecho de indicação de outros links.</blockquote></br>
+<cite>Citações e lista de definição.</cite></br>
+<ins>Algo que eu inseri</ins></br>
+<address>Detalhes do autor</address></br>
+<del>Algo que foi apagado</del></br>
+<s>Não é mais relevante</s></br>
+<sup>Sobescrito</sup></br>
+<sub>Subscrito</sub></br>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp // Espaços em branco</br>
+<ol>Lista ordenada</ol></br>
+<li>Itens de lista</li></br>
+<ul>Lista não ordenada</ul></br>
+	<dl>
+		Lista de termos.
+		<dt>
+			Termo.	
+		</dt>
+			<dd>
+				Definição do termo.
+			</dd>
+	</dl></br>
+<a href="arquivo.html">Cria Hyperlink para aquivos no mesmo diretório.	</a></br>
+<a href="diretorio/arquivo.html">Cria Hyperlink para arquivo em algum diretório</a></br>
+<a href="../arquivo.html">Cria Hyperlink para arquivo em algum diretório superior</a></br>
+<a href="mailto:raythan100@yahoo.com.br">Email para mim mesmo!</a><br>
+<a href="http://www.google.com.br" target="_blank">Abre link em nova aba</a></br>
+-----------------------------------------------------
+<h1 id="top">Link interno</h1>
+<p><a href="#top">Link para o topo</a></p>
+-----------------------------------------------------
+<a href="endereço#idDoQueVocêQuerlink"></a><br />
+<!--img src="LocalDoArquivo" alt="DescriçãoParaQuemNãoLê" title="Título" width="80" height="60" align="left;right;"/-->
+<!-- ATENÇÃO AOS ALIGNS, WIDTH E HEIGHT -->
+<figcaption>Legenda da figura</figcaption><br />
+<table>Definir uma tabela</br>
+	<td>Colunas</td></br>
+	<tr>Linhas</tr></br>
+	<th scope="col">Nome da linha</th></br>
 
-			<td colspan="2">Mesclar 2 células</td>
-		</table></br>
-		<thead>Cabeçalho da tabela</thead>
-		<tbody>Corpo da tabela</tbody>
-		<tfoot>Rodapé da tabela</tfoot>
-		// Atributos
-		id == identificador unico
-		marcação <span class="vermelho"> identificador de trecho dentro de uma linha - Div interno </span>
-		<iframe> páginas dentro das páginas </iframe>
+	<td colspan="2">Mesclar 2 células</td>
+</table></br>
+<thead>Cabeçalho da tabela</thead>
+<tbody>Corpo da tabela</tbody>
+<tfoot>Rodapé da tabela</tfoot>
+// Atributos
+id == identificador unico
+marcação <span class="vermelho"> identificador de trecho dentro de uma linha - Div interno </span>
+<iframe> páginas dentro das páginas </iframe>
 
-		<meta name="description" content="Minha pagina com meta dados"/> // Descrição da página
-		<meta name="keywords" content="metadados HTML"/> // Buscadores ignoram keywords
-		<meta name="robots" content="nofollow"/> // Não deixa o google indexar as páginas na busca
-		<meta http-equiv="author"/>
-		<meta http-equiv=""
+<meta name="description" content="Minha pagina com meta dados"/> // Descrição da página
+<meta name="keywords" content="metadados HTML"/> // Buscadores ignoram keywords
+<meta name="robots" content="nofollow"/> // Não deixa o google indexar as páginas na busca
+<meta http-equiv="author"/>
 
-		//Obs.: utilizar arquivos CSS em páginas diferentes
-    
-    Folhas de estilos em cascatas - CSS
-    <link href="css/exemplo1.css" type="text/css" rel="stylesheet"/>
-    <style>
-      --> *{} // Seletor universal
-      p{ // p representa um seletor
-        border: 1px solid red; // border representa um atributo, valores
-      }
-      
-      --> h2>i {color:red} // Herança, itálico dentro de h2 recebe cor vermelho
-      --> #id --> .class
-      --> li a {color: green;} // Seletor descendente, diretamente ou indiretamente do tipo 1, todos os a dentro de li
-	  --> h1 + p {color:red;} // Seletor adjacente, atribui ao tags que estiverem posteriormente "irmãos(ãs)"
-	  --> h1 ~ p {color:red;} // Seletor adjacente, atribui ao tags que estiverem posteriormente e anteriormente
-	  // Herança é sempre a última que estiver definido ou mais específica
-	  // Elementos internos herdam propriedade dos mais externos
-    </<style>
-    
-	
-	
-	--------------------------------- Tipos de eventos CSS ---------------------------------
-	/* unvisited link */
-      a:link {
-          color: green;
-      }
+//Obs.: utilizar arquivos CSS em páginas diferentes
 
-      /* visited link */
-      a:visited {
-          color: green;
-      }
+-------------------------------------------------------------------------------------------------------
+--------------------------------- Folhas de estilos em cascatas - CSS ---------------------------------
+-------------------------------------------------------------------------------------------------------
+<link href="css/exemplo1.css" type="text/css" rel="stylesheet"/>
+<style>
+--> *{} // Seletor universal
+p{ // p representa um seletor
+border: 1px solid red; // border representa um atributo, valores
+}
 
-      /* mouse over link */
-      a:hover {
-          color: red;
-      }
+--> h2>i {color:red} // Herança, itálico dentro de h2 recebe cor vermelho
+--> #id --> .class
+--> li a {color: green;} // Seletor descendente, diretamente ou indiretamente do tipo 1, todos os a dentro de li
+--> h1 + p {color:red;} // Seletor adjacente, atribui ao tags que estiverem posteriormente "irmãos(ãs)"
+--> h1 ~ p {color:red;} // Seletor adjacente, atribui ao tags que estiverem posteriormente e anteriormente
+// Herança é sempre a última que estiver definido ou mais específica
+// Elementos internos herdam propriedade dos mais externos
 
-      /* selected link */
-      a:active {
-          color: yellow;
-      }
-	  -------------------------------------------------------------------------------------
+min-height: 100px;
+max-height: 300px;
+min-width: 100px;
+max-width: 300px;
+overflow: hidden; // esconde conteúdo que ultrapassar as divs
+overflow: scroll; // coloca barra de rolagem para mostrar conteúdo que ultrapassar as divs
+border-width: 2px 4px 8px 16px;
+border-color: red; // Exemplo 1 de cor
+border-style: solid;
+border-style: dotted;
+border-style: dashed;
+border-style: double;
+border-style: groove;
+border-style: ridge;
+border-style: inset;
+border-style: outset;
+border-style: none;
+border-color: #bbbbaa #111111 #ee3e80 #0088dd; // Exemplo 2 de cor
+</<style>
+
+-------------------------------------------------------------------------------------------------------
+--------------------------------------- Tipos de eventos CSS ------------------------------------------
+-------------------------------------------------------------------------------------------------------
+/* unvisited link */
+a:link {
+  color: green;
+}
+
+/* visited link */
+a:visited {
+  color: green;
+}
+
+/* mouse over link */
+a:hover {
+  color: red;
+}
+
+/* selected link */
+a:active {
+  color: yellow;
+}
+-------------------------------------------------------------------------------------------------------
