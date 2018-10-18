@@ -101,6 +101,17 @@ marcação <span class="vermelho"> identificador de trecho dentro de uma linha -
 	visibility: hidden; // mostra a visibilidade visible, hidden, inherit, collapse
 	border-image: url{""} 30 30 round, stretch, repeat // IMPORTANTE para fazer bordas de divs...
 					URL		TAMANHO		TIPO DA SEPARAÇÃO
+	box-shadow: 3px 3px 3px 3px #777777; // Sombra na borda -- deslocamento horizontal, deslocamento vertical, deslocamento da área borrada, espalhamento da borda, cor da sombra --
+	text-align: center, left, right;
+	border-radius: 10px;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	border-top-left-radius: 10px; // border-bottom-left-radius: 80px 50px; -- aredondamento deformado horizontal, vertical
+	
+	
+	em = tamanho da letra M fonte padrão do navegador
+	
 </<style>
 
 -------------------------------------------------------------------------------------------------------
