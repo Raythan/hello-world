@@ -59,6 +59,20 @@ marcação <span class="vermelho"> identificador de trecho dentro de uma linha -
 
 //Obs.: utilizar arquivos CSS em páginas diferentes
 
+
+<table id="customers">
+  <tr>
+    <th>Company</th> Título 1
+    <th>Contact</th> Título 2
+    <th>Country</th> Título 3
+  </tr>
+  <tr>
+    <td>Alfreds Futterkiste</td> Célula1
+    <td>Maria Anders</td> Célula2
+    <td>Germany</td> Célula3
+  </tr>
+</table>
+
 -------------------------------------------------------------------------------------------------------
 --------------------------------- Folhas de estilos em cascatas - CSS ---------------------------------
 -------------------------------------------------------------------------------------------------------
