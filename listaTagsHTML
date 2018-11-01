@@ -1,20 +1,20 @@
-<strong>Negrito - HTML5!</strong></br>
-<em>Itálico - HTML5!</em></br>
-<b>Negrito.</b></br>
-<i>Itálico.</i></br>
-<p>Parágrafo.</p></br>
-<blockquote>Trecho de indicação de outros links.</blockquote></br>
-<cite>Citações e lista de definição.</cite></br>
-<ins>Algo que eu inseri</ins></br>
-<address>Detalhes do autor</address></br>
-<del>Algo que foi apagado</del></br>
-<s>Não é mais relevante</s></br>
-<sup>Sobescrito</sup></br>
-<sub>Subscrito</sub></br>
-&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp // Espaços em branco</br>
-<ol>Lista ordenada</ol></br>
-<li>Itens de lista</li></br>
-<ul>Lista não ordenada</ul></br>
+<strong>Negrito - HTML5!</strong>
+<em>Itálico - HTML5!</em>
+<b>Negrito.</b>
+<i>Itálico.</i>
+<p>Parágrafo.</p>
+<blockquote>Trecho de indicação de outros links.</blockquote>
+<cite>Citações e lista de definição.</cite>
+<ins>Algo que eu inseri</ins>
+<address>Detalhes do autor</address>
+<del>Algo que foi apagado</del>
+<s>Não é mais relevante</s>
+<sup>Sobescrito</sup>
+<sub>Subscrito</sub>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp // Espaços em branco
+<ol>Lista ordenada</ol>
+<li>Itens de lista</li>
+<ul>Lista não ordenada</ul>
 	<dl>
 		Lista de termos.
 		<dt>
@@ -24,11 +24,11 @@
 				Definição do termo.
 			</dd>
 	</dl></br>
-<a href="arquivo.html">Cria Hyperlink para aquivos no mesmo diretório.	</a></br>
-<a href="diretorio/arquivo.html">Cria Hyperlink para arquivo em algum diretório</a></br>
-<a href="../arquivo.html">Cria Hyperlink para arquivo em algum diretório superior</a></br>
-<a href="mailto:raythan100@yahoo.com.br">Email para mim mesmo!</a><br>
-<a href="http://www.google.com.br" target="_blank">Abre link em nova aba</a></br>
+<a href="arquivo.html">Cria Hyperlink para aquivos no mesmo diretório.	</a>
+<a href="diretorio/arquivo.html">Cria Hyperlink para arquivo em algum diretório</a>
+<a href="../arquivo.html">Cria Hyperlink para arquivo em algum diretório superior</a>
+<a href="mailto:raythan100@yahoo.com.br">Email para mim mesmo!</a>
+<a href="http://www.google.com.br" target="_blank">Abre link em nova aba</a>
 -----------------------------------------------------
 <h1 id="top">Link interno</h1>
 <p><a href="#top">Link para o topo</a></p>
@@ -56,9 +56,7 @@ marcação <span class="vermelho"> identificador de trecho dentro de uma linha -
 <meta name="keywords" content="metadados HTML"/> // Buscadores ignoram keywords
 <meta name="robots" content="nofollow"/> // Não deixa o google indexar as páginas na busca
 <meta http-equiv="author"/>
-
 //Obs.: utilizar arquivos CSS em páginas diferentes
-
 
 <table id="customers">
   <tr>
@@ -95,19 +93,10 @@ marcação <span class="vermelho"> identificador de trecho dentro de uma linha -
 	max-height: 300px;
 	min-width: 100px;
 	max-width: 300px;
-	overflow: hidden; // esconde conteúdo que ultrapassar as divs
-	overflow: scroll; // coloca barra de rolagem para mostrar conteúdo que ultrapassar as divs
+	overflow: hidden, scroll // esconde conteúdo que ultrapassar as divs, coloca barra de rolagem para mostrar conteúdo que ultrapassar as divs
 	border-width: 2px 4px 8px 16px;
 	border-color: red; // Exemplo 1 de cor
-	border-style: solid; // Lisa
-	border-style: dotted; // Pontilhada
-	border-style: dashed; // Pontilhada mais larga
-	border-style: double; // Dupla
-	border-style: groove; // tipo 3D
-	border-style: ridge; // 3D Arredondada
-	border-style: inset; // botao clicado
-	border-style: outset; // botao para clicar
-	border-style: none; // sem borda
+	border-style: solid, dotted, dashed, double, groove, ridge, inset, outset, none // Lisa, pontilhada, pontilhada larga, dupla, tipo 3D, 3d arredondada, botao clicado, botao ora clicar, sem borda
 	border-color: #bbbbaa #111111 #ee3e80 #0088dd; // Exemplo 2 de cor
 	border: 3px dotted #0088dd;
 	padding: 10px; // espaçamento interno
@@ -122,10 +111,18 @@ marcação <span class="vermelho"> identificador de trecho dentro de uma linha -
 	border-bottom-right-radius: 10px;
 	border-bottom-left-radius: 10px;
 	border-top-left-radius: 10px; // border-bottom-left-radius: 80px 50px; -- aredondamento deformado horizontal, vertical
-	
-	
 	em = tamanho da letra M fonte padrão do navegador
-	
+	list-style-type: none, disc, circle, square // nada, bolinha preenchida, circulo, quadrado <<-- não ordenada
+	decimal, decimal-leading-zero, lower-alpha, upper-alpha, lower-roman, upper-roman // decimal, decimal numerado com zeros, abc, ABC, i,ii,iii; I,II,III <<-- ordenada
+	list-style-image: url("");
+	list-style-position: outside, inside, circle // fora da lista, dentro da lista, 
+	text-transform: uppercase // transforma em maiúsculo
+	letter-spacing: //espaçamento entre letras
+	empty-cells: show, hide, inherit
+	border-spacing: 5px 15px // espaçamento entre bordas
+	border-collapse: collapse, separate // célula de tabelas junta ou separada
+	font-family: Arial, Verdana, sans-serif;
+	a.even { // linhas pares ou odd para linhas ímpares
 </<style>
 
 -------------------------------------------------------------------------------------------------------
@@ -135,19 +132,18 @@ marcação <span class="vermelho"> identificador de trecho dentro de uma linha -
 a:link {
   color: green;
 }
-
 /* visited link */
 a:visited {
   color: green;
 }
-
 /* mouse over link */
 a:hover {
   color: red;
 }
-
 /* selected link */
 a:active {
   color: yellow;
 }
--------------------------------------------------------------------------------------------------------
+
+
+
