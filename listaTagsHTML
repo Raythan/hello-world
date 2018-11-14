@@ -41,7 +41,6 @@
 	<td>Colunas</td></br>
 	<tr>Linhas</tr></br>
 	<th scope="col">Nome da linha</th></br>
-
 	<td colspan="2">Mesclar 2 células</td>
 </table></br>
 <thead>Cabeçalho da tabela</thead>
@@ -130,6 +129,12 @@ marcação <span class="vermelho"> identificador de trecho dentro de uma linha -
 	DEVE ESPECIFICAR AS DISTANCIAS// top: 1px; bottom: 1px; left: 1px; right: 1px;
 	float: left, right // clear: left, right // tira os elementos das laterais
 	z-index: 10; // atribuir valor de prioridade - camadas da página - maior número vai por cima
+	<header> cabeçalho, não pode estar em <footer> e <addres>
+	<nav> barra de navegação
+	<section> seção = body
+	<aside> seção na lateral
+	<article> artigo
+	<footer> rodapé
 </<style>
 
 -------------------------------------------------------------------------------------------------------
