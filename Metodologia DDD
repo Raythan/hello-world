@@ -1,12 +1,12 @@
 Domain Driven Design - Design Direcionado ao Domínio
 Se encaixa no que conhecemos como banco de dados relacionais
-ORM's - Mapeadores Objeto-Relacionais
-Separação em camadas - UI -> Seriços da aplicação
+ORM's - Mapeadores Objetos-Relacionais
+Separação em camadas - UI -> Serviços da aplicação
 			Infraestrutura
 			Repositórios - Os repositórios de dados são definidos através de um padrão: o padrão Repository. A ideia é que o Modelo de domínio esteja livre de qualquer definição de infraestrutura de dados, fazendo com que ele siga os princípios POCO (Plain Old Common-Runtime Object) e PI (Persistence Ignorance)
-
 				Serviços de domínio - Contém regras e comportamentos referentes ao Modelo de domínio.
 				Modelo de domínio - base do DDD, definição das classes para evitar problemas posteriores.
+
 
 POCO (Plain Old Common-Runtime Object) e PI (Persistence Ignorance) – termos que são utilizados em conjunto para indicar objetos que não possuem comportamentos (métodos) definidos (entidades).
 ORM (Object-Relational Mapping – Mapeamento Objeto-Relacional)
