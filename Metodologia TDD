@@ -1,0 +1,37 @@
+Bartié - “Qualidade de software é um processo sistemático que focaliza todas as etapas e artefatos produzidos com o objetivo de garantir a conformidade de processos e produtos, prevenindo e eliminando defeitos”.
+
+Miller apud Presmann, “a motivação que está por trás do teste de programas é a confirmação da qualidade de software com métodos que podem ser economicamente e efetivamente aplicados a todos os sistemas, de grande e pequena escala”.
+
+Silveira at al., “Um teste de unidade deve garantir que a execução daquele trecho mínimo de código esteja correta.”
+
+Kent Beck apud Freeman “Finalmente, consegui separar o projeto lógico do físico. Sempre me disseram para fazer isso, mas nunca ninguém tinha explicado como”
+
+Sommerville, “Os componentes são integrados para compor o sistema. Esse processo está relacionado com a busca de erros que resultam das interações não previstas entre os componentes”.
+
+O TDD (Test Driven Development / Desenvolvimento orientado a teste)
+1 - Escreva um teste que falhe
+2 - Escreva um código para passar no teste
+3 - Elimine as redundâncias
+
+modelo F.I.R.S.T.
+F (Fast) - Rápidos: devem ser rápidos, pois testam apenas uma unidade;
+I (Isolated) - Testes unitários são isolados, testando individualmente as unidades e não sua integração;
+R (Repeateble) - Repetição nos testes, com resultados de comportamento constante;
+S (Self-verifying) - A auto verificação deve verificar se passou ou se deu como falha o teste;
+T (Timely) - O teste deve ser oportuno, sendo um teste por unidade.
+
+****************************************************************************************************************************************
+***************************************************** Ferramentas para Testes **********************************************************
+****************************************************************************************************************************************
+Para começar a desenvolver seus primeiros testes, pode ser mais fácil a utilização de bibliotecas XUnit's. Existem diversas ferramentas que possibilitam esta prática, vamos a algumas:
+
+JUnit: O JUnit é um framework de teste para Java, que permite a criação de testes unitários. Além disso, está disponível como plug-in para os mais diversos IDE'S como Eclipse, Netbeans etc.
+TesteNG: Outra ferramenta de teste unitária, disponível para Java;
+PHPUnit: Framework XUnit para teste unitário em PHP, também é possível integrar aos IDE's assim como o JUnit;
+SimpleTest: Outra ferramenta para realização de teste para PHP. Além de possibilitar os testes unitários, é possível realizar MOCKS e outros testes;
+NUnit: Framework de teste no molde XUnit para a plataforma .NET;
+Jasmine: Framework para teste unitário de JavaScript;
+CUnit: Ferramenta para os testes unitários disponível para Linguagem C;
+PyUnit: Framework Xunit para testes na linguagem Python.
+****************************************************************************************************************************************
+****************************************************************************************************************************************
