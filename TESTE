@@ -1,0 +1,50 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;  
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+ import java.io.IOException;  
+ import java.security.KeyStore;  
+ import java.security.KeyStoreException;  
+ import java.security.NoSuchAlgorithmException;  
+ import java.security.SecureRandom;  
+ import java.security.cert.CertificateException;  
+ import java.security.cert.X509Certificate;  
+ import java.security.interfaces.RSAPublicKey;  
+import java.util.Enumeration;
+ import javax.crypto.Cipher;  
+import javax.swing.JOptionPane;
+
+
+public class LerArquivoJKS {
+    public static void main(String[] args) throws KeyStoreException, FileNotFoundException, IOException, NoSuchAlgorithmException, CertificateException{
+        StringBuffer teste = new StringBuffer();
+        System.out.println("Testo desencriptado: ---   "+LerArquivoJKS.readJKS(KEYPASS, KEYSTORE));
+    }
+    private static final String KEYSTORE = "C:\\Documents and Settings\\Elton Cunha\\Desktop\\nfe.jks";  
+    private static final String KEYPASS = "cienciCert";  
+    private static X509Certificate readJKS(String keyname, String keystore) throws IOException, KeyStoreException,  
+       NoSuchAlgorithmException, CertificateException {  
+       KeyStore ks = KeyStore.getInstance("JKS");  
+       ks.load(new FileInputStream(keystore), KEYPASS.toCharArray());  
+       X509Certificate result = (X509Certificate) ks.getCertificate(getAliases()); 
+       return result;
+    }  
+    private static String getAliases() throws KeyStoreException, FileNotFoundException, IOException, NoSuchAlgorithmException, CertificateException{
+        String result = "";
+        String path = "C:\\Documents and Settings\\Elton Cunha\\Desktop\\nfe.jks";
+        KeyStore ks = KeyStore.getInstance("JKS");
+            //FileInputStream fis = new FileInputStream(NfeUtil.generatePathToSecurity(path));
+            FileInputStream fis = new FileInputStream(path);
+            ks.load(fis, "cienciCert".toCharArray());
+            Enumeration aliasesEnum = ks.aliases();
+            String alias = "";
+            while (aliasesEnum.hasMoreElements()) {
+                alias = (String) aliasesEnum.nextElement();
+                if (ks.isKeyEntry(alias)) {
+                    break;
+                }
+            }
+            return alias;
+    }
+}
