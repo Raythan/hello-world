@@ -1,0 +1,73 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+void ErroTerreno(){
+	printf("O terreno nao eh retangular.\nImpossivel calcular.\n");
+}
+void ErroCasaFora(){
+	printf("A casa esta fora do terreno.\nImpossivel calcular.\n");
+}
+
+int main(){
+	int terreno[8] = { 40, 10, 40, 30, 10, 10, 10, 30 }; 
+	int casa[2];
+	//
+	// (X1, Y1) = 10, 40;
+	// (X2, Y2) = 30, 40;
+	// (X3, Y3) = 10, 10;
+	// (X4, Y4) = 30, 10;
+	// (CX, CY) = 30, 40;
+//	printf("**************************\n\n");
+//	printf("     V1---------V2\n");
+//	printf("     |           |\n");
+//	printf("     |           |\n");
+//	printf("     V3---------V4\n\n");
+//	printf("**************************\n\n");
+//	printf("Valor de latitude em V1: "); // Valor de Y1
+//	scanf("%d", &terreno[0]);
+//	printf("Valor de longitude em V1: "); // Valor de X1
+//	scanf("%d", &terreno[1]);
+//	printf("Valor de latitude em V2: "); // Valor de Y2
+//	scanf("%d", &terreno[2]);
+//	printf("Valor de longitude em V2: "); // Valor de X2
+//	scanf("%d", &terreno[3]);
+//	if(terreno[1] != terreno[3]){ // Condicional que verifica longitude (X) X1 e X2
+//		ErroTerreno();
+//		return 0;
+//	}	
+//	printf("Valor de latitude em V3: "); // Valor de Y3
+//	scanf("%d", &terreno[4]);
+//	printf("Valor de longitude em V3: "); // Valor de X3
+//	
+//	if(terreno[0] != terreno[3]){ // Condicional que verifica latitude (Y) Y1 e Y2
+//		ErroTerreno();
+//		return 0;
+//	}
+//	
+//	scanf("%d", &terreno[5]);
+//	printf("Valor de latitude em V4: "); // Valor de Y4
+//	scanf("%d", &terreno[6]);
+//	printf("Valor de longitude em V4: "); // Valor de X4
+//	scanf("%d", &terreno[7]);
+//	if(terreno[4] != terreno[7]){ // Condicional que verifica longitude (X) X3 e X4
+//		ErroTerreno();
+//		return 0;
+//	}
+//	if(terreno[2] != terreno[6]){ // Condicional que verifica latitude (Y) Y3 e Y4
+//		ErroTerreno();
+//		return 0;
+//	}
+//	system("cls");
+	
+	printf("Posicao de latitude da casa no terreno: ");
+	scanf("%d", &casa[0]);
+	printf("Posicao de longitude da casa no terreno: ");
+	scanf("%d", &casa[1]);
+	if(casa[0] > terreno[0] || casa[0] < terreno[4]){
+		ErroCasaFora();
+	}
+	if(casa[1] < terreno[1] || casa[1] > terreno[3]){
+		ErroCasaFora();
+	}
+	return 0;
+}
