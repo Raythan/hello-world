@@ -1,6 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h> // Biblioteca que serve para alterar para idioma local!
+#include <math.h> // Biblioteca para calcular potencia e raíz
+//  PARAMETRO DE PREENCHIMENTO TERRENOS e CASA
+// (X1, Y1) = 10, 40;
+// (X2, Y2) = 30, 40;
+// (X3, Y3) = 10, 10;
+// (X4, Y4) = 30, 10;
+// (CX, CY) = 30, 40;
+
+// PREENCHIMENTO DO TERRENO PARA DEMONSTRAÇÂO
+// int terreno[8] = { 50, 10, 50, 50, 10, 10, 10, 50 }
 
 void ErroTerreno(){
 	printf("O terreno nao eh retangular.\nImpossivel calcular.\n");
@@ -11,24 +21,24 @@ void ErroCasaFora(){
 void DropMeteoroOff(){
 	printf("O meteoro caiu fora do terreno.\n");
 }
-
 int main(){
-	//  PARAMETRO DE PREENCHIMENTO
-	// (X1, Y1) = 10, 40;
-	// (X2, Y2) = 30, 40;
-	// (X3, Y3) = 10, 10;
-	// (X4, Y4) = 30, 10;
-	// (CX, CY) = 30, 40;
-	int terreno[8] = { 40, 10, 40, 30, 10, 10, 10, 30 }, casa[2], qtdMeteoros, meteoroMaisProximo = 0, posMet[4];
-	
+	//
+	// DESCRIÇÃO DAS VARIÁVEIS GLOBAIS
+	// terreno[] = Vetor que armazena latitudes e longitudes do terreno
+	// terreno[0] = Y1
+	// terreno[1] = X1
+	// terreno[2] = Y2
+	// terreno[3] = X2
+	// terreno[4] = Y3
+	// terreno[5] = X3
+	// terreno[6] = Y4
+	// terreno[7] = X4
+	// casa[0] = Latitude(Y)
+	// casa[1] = Longitude(X)
+	// meteoroMaisProximo[0] = inicia com diagonal igual a 0
+	// meteoroMaisProximo[1] = inicia com número do meteoro em -1 por causa do condicional que usa o contador(i inicia em 0) no FOR
+	int terreno[8], casa[2], qtdMeteoros, meteoroMaisProximo[2] = { 0, -1 };
 	setlocale(LC_ALL, "Portuguese"); // MÉTODO QUE PERMITE USAR CARACTERES ESPECIAIS NA IMPRESSÃO printf("çãéè");
-	
-//	printf("**************************\n\n");
-//	printf("     V1---------V2\n");
-//	printf("     |           |\n");
-//	printf("     |           |\n");
-//	printf("     V3---------V4\n\n");
-//	printf("**************************\n\n");
 
 //  //*********************************
 //  //*	PREENCHIMENTO PASSO A PASSO   *
@@ -58,26 +68,28 @@ int main(){
 //	}
 //	system("cls");
 //	//*****************************************************************************
-
-//	//*****************************
-//	//*	PREENCHIMENTO COM LAÇO	  *
-//	//*****************************
-//	for(int i = 0, j = 0; i < 4; i++){
-//		printf("Informe a Latitude(Y) de X%d: ", (i + 1));
-//		scanf("%d", &terreno[j]);
-//		j++;
-//		printf("Informe a Longitude(X) de X%d: ", (i + 1));
-//		scanf("%d", &terreno[j]);
-//		j++;
-//	}
-//	//
-//	// Condicional que verifica se é um retângulo
-//	//
-//	if((terreno[1] != terreno[5]) || (terreno[0] != terreno[2]) || (terreno[4] != terreno[6]) || (terreno[3] != terreno[7])){ 
-//		ErroTerreno();
-//		return 0;
-//	}
 //	//*****************************************************************************
+
+	//*****************************
+	//*	PREENCHIMENTO COM LAÇO	  *
+	//*****************************
+	for(int i = 0, j = 0; i < 4; i++){
+		printf("Informe a Latitude(Y) de X%d: ", (i + 1));
+		scanf("%d", &terreno[j]);
+		j++;
+		printf("Informe a Longitude(X) de X%d: ", (i + 1));
+		scanf("%d", &terreno[j]);
+		j++;
+	}
+	//
+	// Condicional que verifica se é um retângulo
+	//
+	if((terreno[1] != terreno[5]) || (terreno[0] != terreno[2]) || (terreno[4] != terreno[6]) || (terreno[3] != terreno[7])){ 
+		ErroTerreno();
+		return 0;
+	}
+	//*****************************************************************************
+	//*****************************************************************************
 	
 	//********************************************
 	//*		PREENCHENDO CASA					 *
@@ -88,51 +100,117 @@ int main(){
 	scanf("%d", &casa[1]);
 	if(casa[0] > terreno[0] || casa[0] < terreno[4] || casa[1] < terreno[1] || casa[1] > terreno[3]){
 		ErroCasaFora();
+		return 0;
 	}
 	system("cls");
 	//*****************************************************************************
+	//*****************************************************************************
+	
 	printf("Informe a quantidade de meteoros que caíram segundo IMPEF: ");
 	scanf("%d", &qtdMeteoros);
 	
-	for(int i = 0; i < qtdMeteoros; i++){
+	for(int i = 0, posMet[2], aux[3]; i < qtdMeteoros; i++){ // O laço corre a quantidade de vezes de meteoros
+		// **********************************************
+		// *	Descrição de variáveis dentro do laço	*
+		// **********************************************
+		// i = contador que serve para indicar em que meteoro o laço se encontra
+		// posMet[] = um vetor que vai armazenar a distancia que o meteoro caiu da casa, e calcular a diagonal de distancia
+		// posMet[0] = distancia em Y do meteoro
+		// posMet[1] = distancia em X do meteoro até a casa
+		// aux[] = Vetor auxiliar que armazena os valores digitados na hora do laço
+		// aux[0] = distancia em Y do meteoro até a casa
+		// aux[1] = distancia em X do meteoro até a casa
+		// aux[2] = diatancia da diagonal do meteoro até a casa
+		// meteoroMaisProximo[0] = armazena a diagonal(distancia) do último meteoro
+		// meteoroMaisProximo[1] = armazena o número do último meteoro
 		printf("Informe a Latitude(Y) do meteoro[%d]: ", (i + 1));
 		scanf("%d", &posMet[0]);
-		printf("Informe a Latitude(X) do meteoro[%d]: ", (i + 1));
+		printf("Informe a Longitude(X) do meteoro[%d]: ", (i + 1));
 		scanf("%d", &posMet[1]);
-		if(posMet[0] > terreno[0] || posMet[1] > terreno[7] || posMet[0] < terreno[4] || posMet[1] < terreno[5])
-			DropMeteoroOff();
+		
+		//
+		// VERIFICA SE O METEORO CAIU DENTRO DO TERRENO
+		//
+		if(posMet[0] > terreno[0] || posMet[1] > terreno[7] || posMet[0] < terreno[4] || posMet[1] < terreno[5]) 
+			DropMeteoroOff(); // Método declarado no início do código, IMPRIME O ERRO FORA DO TERRENO
 		else{
-			if(i == 0){
-				posMet[2] = posMet[0];
-				posMet[3] = posMet[1];
-				printf("METEORO: ");
-			}
-			else{
-				if(posMet[0] < casa[0]){
-					if(posMet[1] < casa[1]){
-						posMet[2] = casa[0] - posMet[0];
-						posMet[3] = casa[1] - posMet[1];
+			if(meteoroMaisProximo[1] < 0){ // PRIMEIRO METEORO QUE CAIR NO TERRENO
+				if(posMet[0] < casa[0]){ // Verifica o Quadrante de Y (Explicação de quadrante no fim do código)
+					if(posMet[1] < casa[1]){ // Verifica o Quadrante de X (Eplicação de quadrante no fim do código)
+						aux[0] = casa[0] - posMet[0];
+						aux[1] = casa[1] - posMet[1];
+						meteoroMaisProximo[0] = sqrt(pow(aux[0], 2) + pow(aux[1], 2));
+						meteoroMaisProximo[1] = i;
 					}
 					else{
-						
+						aux[0] = casa[0] - posMet[0];
+						aux[1] = posMet[1] - casa[1];
+						meteoroMaisProximo[0] = sqrt(pow(aux[0], 2) + pow(aux[1], 2));
+						meteoroMaisProximo[1] = i;
 					}
 				}
 				else{
 					if(posMet[1] < casa[1]){
-						
+						aux[0] = posMet[0] - casa[0] ;
+						aux[1] = casa[1] - posMet[1];
+						meteoroMaisProximo[0] = sqrt(pow(aux[0], 2) + pow(aux[1], 2));
+						meteoroMaisProximo[1] = i;
 					}
 					else{
-						
+						aux[0] = posMet[0] - casa[0];
+						aux[1] = posMet[1] - casa[1];
+						meteoroMaisProximo[0] = sqrt(pow(aux[0], 2) + pow(aux[1], 2));
+						meteoroMaisProximo[1] = i;
 					}
 				}
-				
 			}
+			else{ // DEMAIS METEOROS QUE CAIREM NO TERRENO
+				if(posMet[0] < casa[0]){ // Verifica o Quadrante de Y (Explicação de quadrante no fim do código)   
+					if(posMet[1] < casa[1]){ // Verifica o Quadrante de X (Eplicação de quadrante no fim do código)
+						aux[0] = casa[0] - posMet[0];
+						aux[1] = casa[1] - posMet[1];
+						aux[3] = sqrt(pow(aux[0], 2) + pow(aux[1], 2));
+						if(aux[3] <= meteoroMaisProximo[0]){ // Condicional que verifica se a distancia do último meteoro é menor que a do atual
+							meteoroMaisProximo[0] = aux[0];
+							meteoroMaisProximo[1] = i;
+						}	
+					}
+					else{
+						aux[0] = casa[0] - posMet[0];
+						aux[1] = posMet[1] - casa[1];
+						aux[3] = sqrt(pow(aux[0], 2) + pow(aux[1], 2));
+						if(aux[3] <= meteoroMaisProximo[0]){
+							meteoroMaisProximo[0] = aux[0];
+							meteoroMaisProximo[1] = i;
+						}
+					}
+				}
+				else{
+					if(posMet[1] < casa[1]){
+						aux[0] = posMet[0] - casa[0] ;
+						aux[1] = casa[1] - posMet[1];
+						aux[3] = sqrt(pow(aux[0], 2) + pow(aux[1], 2));
+						if(aux[3] <= meteoroMaisProximo[0]){
+							meteoroMaisProximo[0] = aux[0];
+							meteoroMaisProximo[1] = i;
+						}
+					}
+					else{
+						aux[0] = posMet[0] - casa[0];
+						aux[1] = posMet[1] - casa[1];
+						aux[3] = sqrt(pow(aux[0], 2) + pow(aux[1], 2));
+						if(aux[3] <= meteoroMaisProximo[0]){
+							meteoroMaisProximo[0] = aux[0];
+							meteoroMaisProximo[1] = i;
+						}
+					}
+				}
+			}	
 		}
 	}
-	if(meteoroMaisProximo > 0)
-		printf("Meteoro mais proximo: %d (Y: %d, X: %d)", (meteoroMaisProximo + 1), posMet[3], posMet[4]);
+	if(meteoroMaisProximo[1] > 0)
+		printf("Meteoro mais proximo foi o %d à %dm de ditância.", (meteoroMaisProximo[1] + 1), meteoroMaisProximo[0]);
 	else
 		printf("Não caíram meteoros no terreno.");
 	return 0;
 }
-
